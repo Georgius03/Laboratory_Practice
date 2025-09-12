@@ -1,0 +1,1 @@
+build_F446RET/startup_stm32f446xx.o: STM32F446RET/startup_stm32f446xx.s

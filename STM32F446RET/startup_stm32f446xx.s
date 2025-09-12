@@ -57,9 +57,9 @@ defined in linker script */
     .section  .text.Reset_Handler
   .weak  Reset_Handler
   .type  Reset_Handler, %function
-Reset_Handler: 
-  ldr   sp, =_estack       /* set stack pointer */
- 
+Reset_Handler:  
+  ldr   sp, =_estack      /* set stack pointer */
+
 /* Copy the data segment initializers from flash to SRAM */  
   ldr r0, =_sdata
   ldr r1, =_edata
@@ -92,7 +92,7 @@ LoopFillZerobss:
   bcc FillZerobss
 
 /* Call the clock system initialization function.*/
-  bl  SystemInit  
+  bl  SystemInit   
 /* Call static constructors */
     bl __libc_init_array
 /* Call the application's entry point.*/
@@ -114,7 +114,7 @@ Infinite_Loop:
   .size  Default_Handler, .-Default_Handler
 /******************************************************************************
 *
-* The minimal vector table for a Cortex M4. Note that the proper constructs
+* The minimal vector table for a Cortex M3. Note that the proper constructs
 * must be placed on this to ensure that it ends up at physical address
 * 0x0000.0000.
 * 
@@ -122,6 +122,7 @@ Infinite_Loop:
    .section  .isr_vector,"a",%progbits
   .type  g_pfnVectors, %object
   .size  g_pfnVectors, .-g_pfnVectors
+   
    
 g_pfnVectors:
   .word  _estack
@@ -238,8 +239,8 @@ g_pfnVectors:
   .word     QUADSPI_IRQHandler                /* QuadSPI                      */
   .word     CEC_IRQHandler                    /* CEC                          */
   .word     SPDIF_RX_IRQHandler               /* SPDIF RX                     */
-  .word     FMPI2C1_EV_IRQHandler             /* FMPI2C1 Event                */
-  .word     FMPI2C1_ER_IRQHandler             /* FMPI2C1 Error                */
+  .word     FMPI2C1_EV_IRQHandler          /* FMPI2C 1 Event               */
+  .word     FMPI2C1_ER_IRQHandler          /* FMPI2C 1 Error               */
   
 /*******************************************************************************
 *
@@ -331,3 +332,204 @@ g_pfnVectors:
                   
    .weak      ADC_IRQHandler      
    .thumb_set ADC_IRQHandler,Default_Handler
+               
+   .weak      CAN1_TX_IRQHandler   
+   .thumb_set CAN1_TX_IRQHandler,Default_Handler
+            
+   .weak      CAN1_RX0_IRQHandler                  
+   .thumb_set CAN1_RX0_IRQHandler,Default_Handler
+                           
+   .weak      CAN1_RX1_IRQHandler                  
+   .thumb_set CAN1_RX1_IRQHandler,Default_Handler
+            
+   .weak      CAN1_SCE_IRQHandler                  
+   .thumb_set CAN1_SCE_IRQHandler,Default_Handler
+            
+   .weak      EXTI9_5_IRQHandler   
+   .thumb_set EXTI9_5_IRQHandler,Default_Handler
+            
+   .weak      TIM1_BRK_TIM9_IRQHandler            
+   .thumb_set TIM1_BRK_TIM9_IRQHandler,Default_Handler
+            
+   .weak      TIM1_UP_TIM10_IRQHandler            
+   .thumb_set TIM1_UP_TIM10_IRQHandler,Default_Handler
+
+   .weak      TIM1_TRG_COM_TIM11_IRQHandler      
+   .thumb_set TIM1_TRG_COM_TIM11_IRQHandler,Default_Handler
+      
+   .weak      TIM1_CC_IRQHandler   
+   .thumb_set TIM1_CC_IRQHandler,Default_Handler
+                  
+   .weak      TIM2_IRQHandler            
+   .thumb_set TIM2_IRQHandler,Default_Handler
+                  
+   .weak      TIM3_IRQHandler            
+   .thumb_set TIM3_IRQHandler,Default_Handler
+                  
+   .weak      TIM4_IRQHandler            
+   .thumb_set TIM4_IRQHandler,Default_Handler
+                  
+   .weak      I2C1_EV_IRQHandler   
+   .thumb_set I2C1_EV_IRQHandler,Default_Handler
+                     
+   .weak      I2C1_ER_IRQHandler   
+   .thumb_set I2C1_ER_IRQHandler,Default_Handler
+                     
+   .weak      I2C2_EV_IRQHandler   
+   .thumb_set I2C2_EV_IRQHandler,Default_Handler
+                  
+   .weak      I2C2_ER_IRQHandler   
+   .thumb_set I2C2_ER_IRQHandler,Default_Handler
+                           
+   .weak      SPI1_IRQHandler            
+   .thumb_set SPI1_IRQHandler,Default_Handler
+                        
+   .weak      SPI2_IRQHandler            
+   .thumb_set SPI2_IRQHandler,Default_Handler
+                  
+   .weak      USART1_IRQHandler      
+   .thumb_set USART1_IRQHandler,Default_Handler
+                     
+   .weak      USART2_IRQHandler      
+   .thumb_set USART2_IRQHandler,Default_Handler
+                     
+   .weak      USART3_IRQHandler      
+   .thumb_set USART3_IRQHandler,Default_Handler
+                  
+   .weak      EXTI15_10_IRQHandler               
+   .thumb_set EXTI15_10_IRQHandler,Default_Handler
+               
+   .weak      RTC_Alarm_IRQHandler               
+   .thumb_set RTC_Alarm_IRQHandler,Default_Handler
+            
+   .weak      OTG_FS_WKUP_IRQHandler         
+   .thumb_set OTG_FS_WKUP_IRQHandler,Default_Handler
+            
+   .weak      TIM8_BRK_TIM12_IRQHandler         
+   .thumb_set TIM8_BRK_TIM12_IRQHandler,Default_Handler
+         
+   .weak      TIM8_UP_TIM13_IRQHandler            
+   .thumb_set TIM8_UP_TIM13_IRQHandler,Default_Handler
+         
+   .weak      TIM8_TRG_COM_TIM14_IRQHandler      
+   .thumb_set TIM8_TRG_COM_TIM14_IRQHandler,Default_Handler
+      
+   .weak      TIM8_CC_IRQHandler   
+   .thumb_set TIM8_CC_IRQHandler,Default_Handler
+                  
+   .weak      DMA1_Stream7_IRQHandler               
+   .thumb_set DMA1_Stream7_IRQHandler,Default_Handler
+                     
+   .weak      FMC_IRQHandler            
+   .thumb_set FMC_IRQHandler,Default_Handler
+                     
+   .weak      SDIO_IRQHandler            
+   .thumb_set SDIO_IRQHandler,Default_Handler
+                     
+   .weak      TIM5_IRQHandler            
+   .thumb_set TIM5_IRQHandler,Default_Handler
+                     
+   .weak      SPI3_IRQHandler            
+   .thumb_set SPI3_IRQHandler,Default_Handler
+                     
+   .weak      UART4_IRQHandler         
+   .thumb_set UART4_IRQHandler,Default_Handler
+                  
+   .weak      UART5_IRQHandler         
+   .thumb_set UART5_IRQHandler,Default_Handler
+                  
+   .weak      TIM6_DAC_IRQHandler                  
+   .thumb_set TIM6_DAC_IRQHandler,Default_Handler
+               
+   .weak      TIM7_IRQHandler            
+   .thumb_set TIM7_IRQHandler,Default_Handler
+         
+   .weak      DMA2_Stream0_IRQHandler               
+   .thumb_set DMA2_Stream0_IRQHandler,Default_Handler
+               
+   .weak      DMA2_Stream1_IRQHandler               
+   .thumb_set DMA2_Stream1_IRQHandler,Default_Handler
+                  
+   .weak      DMA2_Stream2_IRQHandler               
+   .thumb_set DMA2_Stream2_IRQHandler,Default_Handler
+            
+   .weak      DMA2_Stream3_IRQHandler               
+   .thumb_set DMA2_Stream3_IRQHandler,Default_Handler
+            
+   .weak      DMA2_Stream4_IRQHandler               
+   .thumb_set DMA2_Stream4_IRQHandler,Default_Handler
+
+   .weak      CAN2_TX_IRQHandler   
+   .thumb_set CAN2_TX_IRQHandler,Default_Handler
+                           
+   .weak      CAN2_RX0_IRQHandler                  
+   .thumb_set CAN2_RX0_IRQHandler,Default_Handler
+                           
+   .weak      CAN2_RX1_IRQHandler                  
+   .thumb_set CAN2_RX1_IRQHandler,Default_Handler
+                           
+   .weak      CAN2_SCE_IRQHandler                  
+   .thumb_set CAN2_SCE_IRQHandler,Default_Handler
+                           
+   .weak      OTG_FS_IRQHandler      
+   .thumb_set OTG_FS_IRQHandler,Default_Handler
+                     
+   .weak      DMA2_Stream5_IRQHandler               
+   .thumb_set DMA2_Stream5_IRQHandler,Default_Handler
+                  
+   .weak      DMA2_Stream6_IRQHandler               
+   .thumb_set DMA2_Stream6_IRQHandler,Default_Handler
+                  
+   .weak      DMA2_Stream7_IRQHandler               
+   .thumb_set DMA2_Stream7_IRQHandler,Default_Handler
+                  
+   .weak      USART6_IRQHandler      
+   .thumb_set USART6_IRQHandler,Default_Handler
+                        
+   .weak      I2C3_EV_IRQHandler   
+   .thumb_set I2C3_EV_IRQHandler,Default_Handler
+                        
+   .weak      I2C3_ER_IRQHandler   
+   .thumb_set I2C3_ER_IRQHandler,Default_Handler
+                        
+   .weak      OTG_HS_EP1_OUT_IRQHandler         
+   .thumb_set OTG_HS_EP1_OUT_IRQHandler,Default_Handler
+               
+   .weak      OTG_HS_EP1_IN_IRQHandler            
+   .thumb_set OTG_HS_EP1_IN_IRQHandler,Default_Handler
+               
+   .weak      OTG_HS_WKUP_IRQHandler         
+   .thumb_set OTG_HS_WKUP_IRQHandler,Default_Handler
+            
+   .weak      OTG_HS_IRQHandler      
+   .thumb_set OTG_HS_IRQHandler,Default_Handler
+                  
+   .weak      DCMI_IRQHandler            
+   .thumb_set DCMI_IRQHandler,Default_Handler  
+
+   .weak      FPU_IRQHandler                  
+   .thumb_set FPU_IRQHandler,Default_Handler  
+
+   .weak      SPI4_IRQHandler            
+   .thumb_set SPI4_IRQHandler,Default_Handler
+
+   .weak      SAI1_IRQHandler            
+   .thumb_set SAI1_IRQHandler,Default_Handler
+
+   .weak      SAI2_IRQHandler            
+   .thumb_set SAI2_IRQHandler,Default_Handler
+   
+   .weak      QUADSPI_IRQHandler            
+   .thumb_set QUADSPI_IRQHandler,Default_Handler
+ 
+   .weak      CEC_IRQHandler            
+   .thumb_set CEC_IRQHandler,Default_Handler
+   
+   .weak      SPDIF_RX_IRQHandler            
+   .thumb_set SPDIF_RX_IRQHandler,Default_Handler 
+ 
+   .weak      FMPI2C1_EV_IRQHandler            
+   .thumb_set FMPI2C1_EV_IRQHandler,Default_Handler
+   
+   .weak      FMPI2C1_ER_IRQHandler            
+   .thumb_set FMPI2C1_ER_IRQHandler,Default_Handler 

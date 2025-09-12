@@ -2,9 +2,6 @@
       - [Список поддерживаемых контроллеров](#mk_list_ru)  
       - [Описание файлов](#file_ru_description)
 ***
-- [Description in English](#en_description)  
-      - [List of supported controllers](#mk_list_en)  
-      - [File description](#file_en_description)  
 <br/>
 
 ## <a name="ru_description"></a> Лабораторный практикум по программированию микроконтроллеров
