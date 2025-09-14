@@ -18,7 +18,7 @@
 
 /* Bit masks for RCC_AHB1ENR */
 #define GPIOA_EN        (1 << 0)    // Bit 0: GPIOA clock enable
-#define GPIOA_EN        (1 << 1)    // Bit 1: GPIOB clock enable
+#define GPIOB_EN        (1 << 1)    // Bit 1: GPIOB clock enable
 #define GPIOC_EN        (1 << 2)    // Bit 2: GPIOC clock enable
 
 /* Bit masks for GPIO registers */
@@ -41,11 +41,11 @@
 #define BUT_3_MASK     (1 << 7)    // Pin 7 for BUT3 (PC7)
 
 /* Register access macros */
-#define REG(addr)       (*(volatile uint32_t *)(addr))               // Generic register access
-#define RCC_REG(offset) REG(RCC_BASE + (offset))                     // RCC register access
-#define GPIOA_REG(offset) REG(GPIOA_BASE + (offset))                 // GPIOA register access
-#define GPIOB_REG(offset) REG(GPIOB_BASE + (offset))                 // GPIOB register access
-#define GPIOC_REG(offset) REG(GPIOC_BASE + (offset))                 // GPIOC register access
+#define REG(addr)       (*(uint32_t *)(addr))               // Generic register access
+#define RCC_REG(offset) REG(RCC_BASE + (offset))            // RCC register access
+#define GPIOA_REG(offset) REG(GPIOA_BASE + (offset))        // GPIOA register access
+#define GPIOB_REG(offset) REG(GPIOB_BASE + (offset))        // GPIOB register access
+#define GPIOC_REG(offset) REG(GPIOC_BASE + (offset))        // GPIOC register access
 
 
 void normal_man_init(void);

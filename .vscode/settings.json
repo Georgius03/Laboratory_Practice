@@ -6,6 +6,7 @@
         "init.h": "c",
         "vcruntime.h": "c",
         "type_traits": "c",
-        "xutility": "c"
+        "xutility": "c",
+        "stdtypes.h": "c"
     }
 }

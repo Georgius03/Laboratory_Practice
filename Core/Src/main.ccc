@@ -24,8 +24,8 @@ uint16_t but_3_prev = 0;
 #define BUT_13_MASK (1 << 13)
 
 int main(void) {
-    // normal_man_init();
-    register_init();
+    normal_man_init();
+    // register_init();
 
     uint16_t delay_time = 5000;
 

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 1
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,196 +58,1606 @@ ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 1
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 2
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 2
 
 
-  33 0000 38B5     		push	{r3, r4, r5, lr}
+  33 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
   34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 16
-  36              		.cfi_offset 3, -16
-  37              		.cfi_offset 4, -12
-  38              		.cfi_offset 5, -8
-  39              		.cfi_offset 14, -4
-  27:Core/Src/main.c ****     // normal_man_init();
-  28:Core/Src/main.c ****     register_init();
-  40              		.loc 1 28 5 view .LVU1
-  41 0002 FFF7FEFF 		bl	register_init
-  42              	.LVL0:
-  29:Core/Src/main.c **** 
-  30:Core/Src/main.c ****     uint16_t delay_time = 5000;
-  43              		.loc 1 30 5 view .LVU2
-  44              	.L2:
-  31:Core/Src/main.c **** 
-  32:Core/Src/main.c ****     while(1) {
-  45              		.loc 1 32 5 view .LVU3
-  33:Core/Src/main.c ****         /* main loop */
-  34:Core/Src/main.c ****         delay(delay_time);
-  46              		.loc 1 34 9 view .LVU4
-  47 0006 41F28830 		movw	r0, #5000
-  48 000a FFF7FEFF 		bl	delay
-  49              	.LVL1:
-  35:Core/Src/main.c ****         GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
-  50              		.loc 1 35 9 view .LVU5
-  51 000e 0B4C     		ldr	r4, .L4
-  52 0010 A369     		ldr	r3, [r4, #24]
-  53              		.loc 1 35 30 is_stmt 0 view .LVU6
-  54 0012 43F02003 		orr	r3, r3, #32
-  55 0016 A361     		str	r3, [r4, #24]
-  36:Core/Src/main.c ****         led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
-  56              		.loc 1 36 9 is_stmt 1 view .LVU7
-  57              		.loc 1 36 26 is_stmt 0 view .LVU8
-  58 0018 6369     		ldr	r3, [r4, #20]
-  59              		.loc 1 36 60 view .LVU9
-  60 001a C3F34013 		ubfx	r3, r3, #5, #1
-  61              		.loc 1 36 23 view .LVU10
-  62 001e 084D     		ldr	r5, .L4+4
-  63 0020 2B80     		strh	r3, [r5]	@ movhi
-  37:Core/Src/main.c ****         delay(delay_time);
-  64              		.loc 1 37 9 is_stmt 1 view .LVU11
-  65 0022 41F28830 		movw	r0, #5000
-  66 0026 FFF7FEFF 		bl	delay
-  67              	.LVL2:
-  38:Core/Src/main.c ****         GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
-  68              		.loc 1 38 9 view .LVU12
-  69 002a A369     		ldr	r3, [r4, #24]
-  70              		.loc 1 38 30 is_stmt 0 view .LVU13
-  71 002c 43F40013 		orr	r3, r3, #2097152
-  72 0030 A361     		str	r3, [r4, #24]
-  39:Core/Src/main.c ****         led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
-  73              		.loc 1 39 9 is_stmt 1 discriminator 1 view .LVU14
-  74              		.loc 1 39 26 is_stmt 0 discriminator 1 view .LVU15
-  75 0032 6369     		ldr	r3, [r4, #20]
-  76              		.loc 1 39 60 discriminator 1 view .LVU16
-ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 3
+  35              		.cfi_def_cfa_offset 32
+  36              		.cfi_offset 4, -32
+  37              		.cfi_offset 5, -28
+  38              		.cfi_offset 6, -24
+  39              		.cfi_offset 7, -20
+  40              		.cfi_offset 8, -16
+  41              		.cfi_offset 9, -12
+  42              		.cfi_offset 10, -8
+  43              		.cfi_offset 14, -4
+  27:Core/Src/main.c **** 
+  28:Core/Src/main.c ****     lab_1_init();
+  44              		.loc 1 28 5 view .LVU1
+  45 0004 FFF7FEFF 		bl	lab_1_init
+  46              	.LVL0:
+  29:Core/Src/main.c ****     
+  30:Core/Src/main.c ****     /* Start program flashing */
+  31:Core/Src/main.c ****     GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+  47              		.loc 1 31 5 view .LVU2
+  48 0008 614C     		ldr	r4, .L14
+  49 000a A369     		ldr	r3, [r4, #24]
+  50              		.loc 1 31 26 is_stmt 0 view .LVU3
+  51 000c 43F02003 		orr	r3, r3, #32
+  52 0010 A361     		str	r3, [r4, #24]
+  32:Core/Src/main.c ****     delay(2500);
+  53              		.loc 1 32 5 is_stmt 1 view .LVU4
+  54 0012 40F6C410 		movw	r0, #2500
+  55 0016 FFF7FEFF 		bl	delay
+  56              	.LVL1:
+  33:Core/Src/main.c ****     GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+  57              		.loc 1 33 5 view .LVU5
+  58 001a A369     		ldr	r3, [r4, #24]
+  59              		.loc 1 33 26 is_stmt 0 view .LVU6
+  60 001c 43F40013 		orr	r3, r3, #2097152
+  61 0020 A361     		str	r3, [r4, #24]
+  34:Core/Src/main.c ****     delay(2500);
+  62              		.loc 1 34 5 is_stmt 1 view .LVU7
+  63 0022 40F6C410 		movw	r0, #2500
+  64 0026 FFF7FEFF 		bl	delay
+  65              	.LVL2:
+  35:Core/Src/main.c ****     GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+  66              		.loc 1 35 5 view .LVU8
+  67 002a A369     		ldr	r3, [r4, #24]
+  68              		.loc 1 35 26 is_stmt 0 view .LVU9
+  69 002c 43F02003 		orr	r3, r3, #32
+  70 0030 A361     		str	r3, [r4, #24]
+  36:Core/Src/main.c ****     delay(2500);
+  71              		.loc 1 36 5 is_stmt 1 view .LVU10
+  72 0032 40F6C410 		movw	r0, #2500
+  73 0036 FFF7FEFF 		bl	delay
+  74              	.LVL3:
+  37:Core/Src/main.c ****     GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+  75              		.loc 1 37 5 view .LVU11
+  76 003a A369     		ldr	r3, [r4, #24]
+  77              		.loc 1 37 26 is_stmt 0 view .LVU12
+  78 003c 43F40013 		orr	r3, r3, #2097152
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 3
 
 
-  77 0034 C3F34013 		ubfx	r3, r3, #5, #1
-  78              		.loc 1 39 23 discriminator 1 view .LVU17
-  79 0038 2B80     		strh	r3, [r5]	@ movhi
-  32:Core/Src/main.c ****         /* main loop */
-  80              		.loc 1 32 10 is_stmt 1 view .LVU18
-  81 003a E4E7     		b	.L2
-  82              	.L5:
-  83              		.align	2
-  84              	.L4:
-  85 003c 00000240 		.word	1073872896
-  86 0040 00000000 		.word	led_pin_1_val
-  87              		.cfi_endproc
-  88              	.LFE0:
-  90              		.global	but_3_prev
-  91              		.section	.bss.but_3_prev,"aw",%nobits
-  92              		.align	1
-  95              	but_3_prev:
-  96 0000 0000     		.space	2
-  97              		.global	but_3_state
-  98              		.section	.bss.but_3_state,"aw",%nobits
-  99              		.align	1
- 102              	but_3_state:
- 103 0000 0000     		.space	2
- 104              		.global	but_3_val
- 105              		.section	.bss.but_3_val,"aw",%nobits
- 106              		.align	1
- 109              	but_3_val:
- 110 0000 0000     		.space	2
- 111              		.global	but_2_state
- 112              		.section	.bss.but_2_state,"aw",%nobits
- 113              		.align	1
- 116              	but_2_state:
- 117 0000 0000     		.space	2
- 118              		.global	but_2_val
- 119              		.section	.bss.but_2_val,"aw",%nobits
- 120              		.align	1
- 123              	but_2_val:
- 124 0000 0000     		.space	2
- 125              		.global	but_1_state
- 126              		.section	.bss.but_1_state,"aw",%nobits
- 127              		.align	1
- 130              	but_1_state:
- 131 0000 0000     		.space	2
- 132              		.global	but_1_val
- 133              		.section	.bss.but_1_val,"aw",%nobits
- 134              		.align	1
- 137              	but_1_val:
- 138 0000 0000     		.space	2
- 139              		.global	led_pin_6_val
- 140              		.section	.bss.led_pin_6_val,"aw",%nobits
- 141              		.align	1
- 144              	led_pin_6_val:
- 145 0000 0000     		.space	2
- 146              		.global	led_pin_5_val
- 147              		.section	.bss.led_pin_5_val,"aw",%nobits
- 148              		.align	1
- 151              	led_pin_5_val:
-ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 4
+  79 0040 A361     		str	r3, [r4, #24]
+  38:Core/Src/main.c ****     delay(2500);
+  80              		.loc 1 38 5 is_stmt 1 view .LVU13
+  81 0042 40F6C410 		movw	r0, #2500
+  82 0046 FFF7FEFF 		bl	delay
+  83              	.LVL4:
+  39:Core/Src/main.c **** 
+  40:Core/Src/main.c ****     led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+  84              		.loc 1 40 5 view .LVU14
+  85              		.loc 1 40 22 is_stmt 0 view .LVU15
+  86 004a 6369     		ldr	r3, [r4, #20]
+  87              		.loc 1 40 42 view .LVU16
+  88 004c 03F00101 		and	r1, r3, #1
+  89              		.loc 1 40 19 view .LVU17
+  90 0050 504A     		ldr	r2, .L14+4
+  91 0052 1180     		strh	r1, [r2]	@ movhi
+  41:Core/Src/main.c ****     led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+  92              		.loc 1 41 5 is_stmt 1 view .LVU18
+  93              		.loc 1 41 56 is_stmt 0 view .LVU19
+  94 0054 C3F34001 		ubfx	r1, r3, #1, #1
+  95              		.loc 1 41 19 view .LVU20
+  96 0058 4F4A     		ldr	r2, .L14+8
+  97 005a 1180     		strh	r1, [r2]	@ movhi
+  42:Core/Src/main.c ****     led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+  98              		.loc 1 42 5 is_stmt 1 view .LVU21
+  99              		.loc 1 42 56 is_stmt 0 view .LVU22
+ 100 005c C3F30011 		ubfx	r1, r3, #4, #1
+ 101              		.loc 1 42 19 view .LVU23
+ 102 0060 4E4A     		ldr	r2, .L14+12
+ 103 0062 1180     		strh	r1, [r2]	@ movhi
+  43:Core/Src/main.c ****     led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 104              		.loc 1 43 5 is_stmt 1 view .LVU24
+ 105              		.loc 1 43 56 is_stmt 0 view .LVU25
+ 106 0064 C3F34011 		ubfx	r1, r3, #5, #1
+ 107              		.loc 1 43 19 view .LVU26
+ 108 0068 4D4A     		ldr	r2, .L14+16
+ 109 006a 1180     		strh	r1, [r2]	@ movhi
+  44:Core/Src/main.c ****     led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 110              		.loc 1 44 5 is_stmt 1 view .LVU27
+ 111              		.loc 1 44 56 is_stmt 0 view .LVU28
+ 112 006c C3F38011 		ubfx	r1, r3, #6, #1
+ 113              		.loc 1 44 19 view .LVU29
+ 114 0070 4C4A     		ldr	r2, .L14+20
+ 115 0072 1180     		strh	r1, [r2]	@ movhi
+  45:Core/Src/main.c ****     led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 116              		.loc 1 45 5 is_stmt 1 view .LVU30
+ 117              		.loc 1 45 56 is_stmt 0 view .LVU31
+ 118 0074 C3F3C013 		ubfx	r3, r3, #7, #1
+ 119              		.loc 1 45 19 view .LVU32
+ 120 0078 4B4A     		ldr	r2, .L14+24
+ 121 007a 1380     		strh	r3, [r2]	@ movhi
+  46:Core/Src/main.c **** 
+  47:Core/Src/main.c ****     uint16_t delay_time = 5000;
+ 122              		.loc 1 47 5 is_stmt 1 view .LVU33
+ 123              	.LVL5:
+ 124              		.loc 1 47 5 is_stmt 0 view .LVU34
+ 125 007c A4E0     		b	.L2
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 4
 
 
- 152 0000 0000     		.space	2
- 153              		.global	led_pin_4_val
- 154              		.section	.bss.led_pin_4_val,"aw",%nobits
- 155              		.align	1
- 158              	led_pin_4_val:
- 159 0000 0000     		.space	2
- 160              		.global	led_pin_3_val
- 161              		.section	.bss.led_pin_3_val,"aw",%nobits
- 162              		.align	1
- 165              	led_pin_3_val:
- 166 0000 0000     		.space	2
- 167              		.global	led_pin_2_val
- 168              		.section	.bss.led_pin_2_val,"aw",%nobits
- 169              		.align	1
- 172              	led_pin_2_val:
- 173 0000 0000     		.space	2
- 174              		.global	led_pin_1_val
- 175              		.section	.bss.led_pin_1_val,"aw",%nobits
- 176              		.align	1
- 179              	led_pin_1_val:
- 180 0000 0000     		.space	2
- 181              		.global	var
- 182              		.section	.bss.var,"aw",%nobits
- 183              		.align	1
- 186              	var:
- 187 0000 0000     		.space	2
- 188              		.text
- 189              	.Letext0:
- 190              		.file 2 "Core/Inc/stdtypes.h"
- 191              		.file 3 "Core/Inc/init.h"
-ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 5
+ 126              	.L13:
+  48:Core/Src/main.c **** 
+  49:Core/Src/main.c ****     while(1) {
+  50:Core/Src/main.c ****         /* main loop */
+  51:Core/Src/main.c **** 
+  52:Core/Src/main.c ****         var = !(GPIOC_REG(GPIO_IDR) & BUT_13_MASK) != 0;
+  53:Core/Src/main.c **** 
+  54:Core/Src/main.c ****         but_1_state = (GPIOC_REG(GPIO_IDR) & BUT_1_MASK) != 0;
+  55:Core/Src/main.c ****         but_2_state = (GPIOC_REG(GPIO_IDR) & BUT_2_MASK) != 0;
+  56:Core/Src/main.c ****         but_3_state = (GPIOC_REG(GPIO_IDR) & BUT_3_MASK) != 0;
+  57:Core/Src/main.c **** 
+  58:Core/Src/main.c ****         if (but_1_state) { but_1_val = 1; }
+  59:Core/Src/main.c ****         if (but_2_state) { but_2_val = 1; }
+  60:Core/Src/main.c ****         if (but_3_state && but_3_prev == 0) {
+  61:Core/Src/main.c ****             but_3_val = !but_3_val;
+  62:Core/Src/main.c ****         }
+  63:Core/Src/main.c ****         but_3_prev = but_3_state;
+  64:Core/Src/main.c **** 
+  65:Core/Src/main.c **** 
+  66:Core/Src/main.c ****         led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+  67:Core/Src/main.c ****         led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+  68:Core/Src/main.c ****         led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+  69:Core/Src/main.c ****         led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+  70:Core/Src/main.c ****         led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+  71:Core/Src/main.c ****         led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+  72:Core/Src/main.c **** 
+  73:Core/Src/main.c ****         if (!but_3_val) {
+  74:Core/Src/main.c ****             if (but_1_val) {
+  75:Core/Src/main.c ****                 delay(delay_time);
+ 127              		.loc 1 75 17 is_stmt 1 view .LVU35
+ 128 007e 41F28830 		movw	r0, #5000
+ 129 0082 FFF7FEFF 		bl	delay
+ 130              	.LVL6:
+  76:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK;
+ 131              		.loc 1 76 17 view .LVU36
+ 132 0086 424C     		ldr	r4, .L14
+ 133 0088 A369     		ldr	r3, [r4, #24]
+ 134              		.loc 1 76 38 is_stmt 0 view .LVU37
+ 135 008a 43F00103 		orr	r3, r3, #1
+ 136 008e A361     		str	r3, [r4, #24]
+  77:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 137              		.loc 1 77 17 is_stmt 1 view .LVU38
+ 138              		.loc 1 77 34 is_stmt 0 view .LVU39
+ 139 0090 6369     		ldr	r3, [r4, #20]
+ 140              		.loc 1 77 54 view .LVU40
+ 141 0092 03F00103 		and	r3, r3, #1
+ 142              		.loc 1 77 31 view .LVU41
+ 143 0096 DFF8FCA0 		ldr	r10, .L14+4
+ 144 009a AAF80030 		strh	r3, [r10]	@ movhi
+  78:Core/Src/main.c ****                 delay(delay_time);
+ 145              		.loc 1 78 17 is_stmt 1 view .LVU42
+ 146 009e 41F28830 		movw	r0, #5000
+ 147 00a2 FFF7FEFF 		bl	delay
+ 148              	.LVL7:
+  79:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK;
+ 149              		.loc 1 79 17 view .LVU43
+ 150 00a6 A369     		ldr	r3, [r4, #24]
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 5
+
+
+ 151              		.loc 1 79 38 is_stmt 0 view .LVU44
+ 152 00a8 43F00203 		orr	r3, r3, #2
+ 153 00ac A361     		str	r3, [r4, #24]
+  80:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 154              		.loc 1 80 17 is_stmt 1 view .LVU45
+ 155              		.loc 1 80 34 is_stmt 0 view .LVU46
+ 156 00ae 6369     		ldr	r3, [r4, #20]
+ 157              		.loc 1 80 68 view .LVU47
+ 158 00b0 C3F34003 		ubfx	r3, r3, #1, #1
+ 159              		.loc 1 80 31 view .LVU48
+ 160 00b4 DFF8E090 		ldr	r9, .L14+8
+ 161 00b8 A9F80030 		strh	r3, [r9]	@ movhi
+  81:Core/Src/main.c ****                 delay(delay_time);
+ 162              		.loc 1 81 17 is_stmt 1 view .LVU49
+ 163 00bc 41F28830 		movw	r0, #5000
+ 164 00c0 FFF7FEFF 		bl	delay
+ 165              	.LVL8:
+  82:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK;
+ 166              		.loc 1 82 17 view .LVU50
+ 167 00c4 A369     		ldr	r3, [r4, #24]
+ 168              		.loc 1 82 38 is_stmt 0 view .LVU51
+ 169 00c6 43F01003 		orr	r3, r3, #16
+ 170 00ca A361     		str	r3, [r4, #24]
+  83:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 171              		.loc 1 83 17 is_stmt 1 view .LVU52
+ 172              		.loc 1 83 34 is_stmt 0 view .LVU53
+ 173 00cc 6369     		ldr	r3, [r4, #20]
+ 174              		.loc 1 83 68 view .LVU54
+ 175 00ce C3F30013 		ubfx	r3, r3, #4, #1
+ 176              		.loc 1 83 31 view .LVU55
+ 177 00d2 DFF8C880 		ldr	r8, .L14+12
+ 178 00d6 A8F80030 		strh	r3, [r8]	@ movhi
+  84:Core/Src/main.c ****                 delay(delay_time);
+ 179              		.loc 1 84 17 is_stmt 1 view .LVU56
+ 180 00da 41F28830 		movw	r0, #5000
+ 181 00de FFF7FEFF 		bl	delay
+ 182              	.LVL9:
+  85:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+ 183              		.loc 1 85 17 view .LVU57
+ 184 00e2 A369     		ldr	r3, [r4, #24]
+ 185              		.loc 1 85 38 is_stmt 0 view .LVU58
+ 186 00e4 43F02003 		orr	r3, r3, #32
+ 187 00e8 A361     		str	r3, [r4, #24]
+  86:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 188              		.loc 1 86 17 is_stmt 1 view .LVU59
+ 189              		.loc 1 86 34 is_stmt 0 view .LVU60
+ 190 00ea 6369     		ldr	r3, [r4, #20]
+ 191              		.loc 1 86 68 view .LVU61
+ 192 00ec C3F34013 		ubfx	r3, r3, #5, #1
+ 193              		.loc 1 86 31 view .LVU62
+ 194 00f0 2B4F     		ldr	r7, .L14+16
+ 195 00f2 3B80     		strh	r3, [r7]	@ movhi
+  87:Core/Src/main.c ****                 delay(delay_time);
+ 196              		.loc 1 87 17 is_stmt 1 view .LVU63
+ 197 00f4 41F28830 		movw	r0, #5000
+ 198 00f8 FFF7FEFF 		bl	delay
+ 199              	.LVL10:
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 6
+
+
+  88:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK;
+ 200              		.loc 1 88 17 view .LVU64
+ 201 00fc A369     		ldr	r3, [r4, #24]
+ 202              		.loc 1 88 38 is_stmt 0 view .LVU65
+ 203 00fe 43F04003 		orr	r3, r3, #64
+ 204 0102 A361     		str	r3, [r4, #24]
+  89:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 205              		.loc 1 89 17 is_stmt 1 view .LVU66
+ 206              		.loc 1 89 34 is_stmt 0 view .LVU67
+ 207 0104 6369     		ldr	r3, [r4, #20]
+ 208              		.loc 1 89 68 view .LVU68
+ 209 0106 C3F38013 		ubfx	r3, r3, #6, #1
+ 210              		.loc 1 89 31 view .LVU69
+ 211 010a 264E     		ldr	r6, .L14+20
+ 212 010c 3380     		strh	r3, [r6]	@ movhi
+  90:Core/Src/main.c ****                 delay(delay_time);
+ 213              		.loc 1 90 17 is_stmt 1 view .LVU70
+ 214 010e 41F28830 		movw	r0, #5000
+ 215 0112 FFF7FEFF 		bl	delay
+ 216              	.LVL11:
+  91:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK;
+ 217              		.loc 1 91 17 view .LVU71
+ 218 0116 A369     		ldr	r3, [r4, #24]
+ 219              		.loc 1 91 38 is_stmt 0 view .LVU72
+ 220 0118 43F08003 		orr	r3, r3, #128
+ 221 011c A361     		str	r3, [r4, #24]
+  92:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 222              		.loc 1 92 17 is_stmt 1 view .LVU73
+ 223              		.loc 1 92 34 is_stmt 0 view .LVU74
+ 224 011e 6369     		ldr	r3, [r4, #20]
+ 225              		.loc 1 92 68 view .LVU75
+ 226 0120 C3F3C013 		ubfx	r3, r3, #7, #1
+ 227              		.loc 1 92 31 view .LVU76
+ 228 0124 204D     		ldr	r5, .L14+24
+ 229 0126 2B80     		strh	r3, [r5]	@ movhi
+  93:Core/Src/main.c ****                 delay(delay_time);
+ 230              		.loc 1 93 17 is_stmt 1 view .LVU77
+ 231 0128 41F28830 		movw	r0, #5000
+ 232 012c FFF7FEFF 		bl	delay
+ 233              	.LVL12:
+  94:Core/Src/main.c **** 
+  95:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK << 16;
+ 234              		.loc 1 95 17 view .LVU78
+ 235 0130 A369     		ldr	r3, [r4, #24]
+ 236              		.loc 1 95 38 is_stmt 0 view .LVU79
+ 237 0132 43F48032 		orr	r2, r3, #65536
+ 238 0136 A261     		str	r2, [r4, #24]
+  96:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK << 16;
+ 239              		.loc 1 96 17 is_stmt 1 view .LVU80
+ 240              		.loc 1 96 38 is_stmt 0 view .LVU81
+ 241 0138 43F44032 		orr	r2, r3, #196608
+ 242 013c A261     		str	r2, [r4, #24]
+  97:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK << 16;
+ 243              		.loc 1 97 17 is_stmt 1 view .LVU82
+ 244              		.loc 1 97 38 is_stmt 0 view .LVU83
+ 245 013e 43F49812 		orr	r2, r3, #1245184
+ 246 0142 A261     		str	r2, [r4, #24]
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 7
+
+
+  98:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+ 247              		.loc 1 98 17 is_stmt 1 view .LVU84
+ 248              		.loc 1 98 38 is_stmt 0 view .LVU85
+ 249 0144 43F44C12 		orr	r2, r3, #3342336
+ 250 0148 A261     		str	r2, [r4, #24]
+  99:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK << 16;
+ 251              		.loc 1 99 17 is_stmt 1 view .LVU86
+ 252              		.loc 1 99 38 is_stmt 0 view .LVU87
+ 253 014a 43F4E602 		orr	r2, r3, #7536640
+ 254 014e A261     		str	r2, [r4, #24]
+ 100:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK << 16;
+ 255              		.loc 1 100 17 is_stmt 1 view .LVU88
+ 256              		.loc 1 100 38 is_stmt 0 view .LVU89
+ 257 0150 43F47303 		orr	r3, r3, #15925248
+ 258 0154 A361     		str	r3, [r4, #24]
+ 101:Core/Src/main.c **** 
+ 102:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 259              		.loc 1 102 17 is_stmt 1 view .LVU90
+ 260              		.loc 1 102 34 is_stmt 0 view .LVU91
+ 261 0156 6369     		ldr	r3, [r4, #20]
+ 262              		.loc 1 102 54 view .LVU92
+ 263 0158 03F00102 		and	r2, r3, #1
+ 264              		.loc 1 102 31 view .LVU93
+ 265 015c AAF80020 		strh	r2, [r10]	@ movhi
+ 103:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 266              		.loc 1 103 17 is_stmt 1 view .LVU94
+ 267              		.loc 1 103 68 is_stmt 0 view .LVU95
+ 268 0160 C3F34002 		ubfx	r2, r3, #1, #1
+ 269              		.loc 1 103 31 view .LVU96
+ 270 0164 A9F80020 		strh	r2, [r9]	@ movhi
+ 104:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 271              		.loc 1 104 17 is_stmt 1 view .LVU97
+ 272              		.loc 1 104 68 is_stmt 0 view .LVU98
+ 273 0168 C3F30012 		ubfx	r2, r3, #4, #1
+ 274              		.loc 1 104 31 view .LVU99
+ 275 016c A8F80020 		strh	r2, [r8]	@ movhi
+ 105:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 276              		.loc 1 105 17 is_stmt 1 view .LVU100
+ 277              		.loc 1 105 68 is_stmt 0 view .LVU101
+ 278 0170 C3F34012 		ubfx	r2, r3, #5, #1
+ 279              		.loc 1 105 31 view .LVU102
+ 280 0174 3A80     		strh	r2, [r7]	@ movhi
+ 106:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 281              		.loc 1 106 17 is_stmt 1 view .LVU103
+ 282              		.loc 1 106 68 is_stmt 0 view .LVU104
+ 283 0176 C3F38012 		ubfx	r2, r3, #6, #1
+ 284              		.loc 1 106 31 view .LVU105
+ 285 017a 3280     		strh	r2, [r6]	@ movhi
+ 107:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 286              		.loc 1 107 17 is_stmt 1 view .LVU106
+ 287              		.loc 1 107 68 is_stmt 0 view .LVU107
+ 288 017c C3F3C013 		ubfx	r3, r3, #7, #1
+ 289              		.loc 1 107 31 view .LVU108
+ 290 0180 2B80     		strh	r3, [r5]	@ movhi
+ 108:Core/Src/main.c **** 
+ 109:Core/Src/main.c ****                 but_1_val = 0;
+ 291              		.loc 1 109 17 is_stmt 1 view .LVU109
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 8
+
+
+ 292              		.loc 1 109 27 is_stmt 0 view .LVU110
+ 293 0182 0023     		movs	r3, #0
+ 294 0184 094A     		ldr	r2, .L14+28
+ 295 0186 1380     		strh	r3, [r2]	@ movhi
+ 110:Core/Src/main.c ****                 but_2_val = 0;
+ 296              		.loc 1 110 17 is_stmt 1 view .LVU111
+ 297              		.loc 1 110 27 is_stmt 0 view .LVU112
+ 298 0188 094A     		ldr	r2, .L14+32
+ 299 018a 1380     		strh	r3, [r2]	@ movhi
+ 300 018c 69E0     		b	.L7
+ 301              	.L15:
+ 302 018e 00BF     		.align	2
+ 303              	.L14:
+ 304 0190 00000240 		.word	1073872896
+ 305 0194 00000000 		.word	led_pin_1_val
+ 306 0198 00000000 		.word	led_pin_2_val
+ 307 019c 00000000 		.word	led_pin_3_val
+ 308 01a0 00000000 		.word	led_pin_4_val
+ 309 01a4 00000000 		.word	led_pin_5_val
+ 310 01a8 00000000 		.word	led_pin_6_val
+ 311 01ac 00000000 		.word	but_1_val
+ 312 01b0 00000000 		.word	but_2_val
+ 313              	.L6:
+ 111:Core/Src/main.c ****             }
+ 112:Core/Src/main.c ****             if (var) {
+ 113:Core/Src/main.c ****                 delay(delay_time);
+ 114:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK;
+ 115:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK;
+ 116:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+ 117:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK;
+ 118:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK;
+ 119:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK;
+ 120:Core/Src/main.c **** 
+ 121:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 122:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 123:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 124:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 125:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 126:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 127:Core/Src/main.c **** 
+ 128:Core/Src/main.c ****                 delay(delay_time);
+ 129:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK << 16;
+ 130:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 131:Core/Src/main.c ****                 delay(delay_time);
+ 132:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK << 16;
+ 133:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 134:Core/Src/main.c ****                 delay(delay_time);
+ 135:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+ 136:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 137:Core/Src/main.c ****                 delay(delay_time);
+ 138:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK << 16;
+ 139:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 140:Core/Src/main.c ****                 delay(delay_time);
+ 141:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK << 16;
+ 142:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 143:Core/Src/main.c ****                 delay(delay_time);
+ 144:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK << 16;
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 9
+
+
+ 145:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 146:Core/Src/main.c ****                 delay(delay_time);
+ 147:Core/Src/main.c ****                 but_1_val = 0;
+ 148:Core/Src/main.c ****                 but_2_val = 0;
+ 149:Core/Src/main.c ****             }
+ 150:Core/Src/main.c ****         } else {
+ 151:Core/Src/main.c ****             if (but_2_val) {
+ 314              		.loc 1 151 13 is_stmt 1 view .LVU113
+ 315              		.loc 1 151 17 is_stmt 0 view .LVU114
+ 316 01b4 734B     		ldr	r3, .L16
+ 317 01b6 1B88     		ldrh	r3, [r3]
+ 318              		.loc 1 151 16 view .LVU115
+ 319 01b8 002B     		cmp	r3, #0
+ 320 01ba 40F00181 		bne	.L11
+ 321              	.L9:
+ 152:Core/Src/main.c ****                 delay(delay_time);
+ 153:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK;
+ 154:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 155:Core/Src/main.c ****                 delay(delay_time);
+ 156:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK;
+ 157:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 158:Core/Src/main.c ****                 delay(delay_time);
+ 159:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK;
+ 160:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 161:Core/Src/main.c ****                 delay(delay_time);
+ 162:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+ 163:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 164:Core/Src/main.c ****                 delay(delay_time);
+ 165:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK;
+ 166:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 167:Core/Src/main.c ****                 delay(delay_time);
+ 168:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK;
+ 169:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 170:Core/Src/main.c ****                 delay(delay_time);
+ 171:Core/Src/main.c **** 
+ 172:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK << 16;
+ 173:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK << 16;
+ 174:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK << 16;
+ 175:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+ 176:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK << 16;
+ 177:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK << 16;
+ 178:Core/Src/main.c **** 
+ 179:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 180:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 181:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 182:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 183:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 184:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 185:Core/Src/main.c **** 
+ 186:Core/Src/main.c ****                 but_1_val = 0;
+ 187:Core/Src/main.c ****                 but_2_val = 0;
+ 188:Core/Src/main.c ****             }
+ 189:Core/Src/main.c ****             if (but_1_val) {
+ 322              		.loc 1 189 13 is_stmt 1 view .LVU116
+ 323              		.loc 1 189 17 is_stmt 0 view .LVU117
+ 324 01be 724B     		ldr	r3, .L16+4
+ 325 01c0 1B88     		ldrh	r3, [r3]
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 10
+
+
+ 326              		.loc 1 189 16 view .LVU118
+ 327 01c2 002B     		cmp	r3, #0
+ 328 01c4 40F08481 		bne	.L12
+ 329              	.L2:
+  49:Core/Src/main.c ****         /* main loop */
+ 330              		.loc 1 49 5 is_stmt 1 view .LVU119
+  52:Core/Src/main.c **** 
+ 331              		.loc 1 52 9 view .LVU120
+  52:Core/Src/main.c **** 
+ 332              		.loc 1 52 17 is_stmt 0 view .LVU121
+ 333 01c8 704B     		ldr	r3, .L16+8
+ 334 01ca D3F81038 		ldr	r3, [r3, #2064]
+  52:Core/Src/main.c **** 
+ 335              		.loc 1 52 52 view .LVU122
+ 336 01ce 13F4005F 		tst	r3, #8192
+ 337 01d2 0CBF     		ite	eq
+ 338 01d4 0121     		moveq	r1, #1
+ 339 01d6 0021     		movne	r1, #0
+  52:Core/Src/main.c **** 
+ 340              		.loc 1 52 13 view .LVU123
+ 341 01d8 6D4A     		ldr	r2, .L16+12
+ 342 01da 1180     		strh	r1, [r2]	@ movhi
+  54:Core/Src/main.c ****         but_2_state = (GPIOC_REG(GPIO_IDR) & BUT_2_MASK) != 0;
+ 343              		.loc 1 54 9 is_stmt 1 view .LVU124
+  54:Core/Src/main.c ****         but_2_state = (GPIOC_REG(GPIO_IDR) & BUT_2_MASK) != 0;
+ 344              		.loc 1 54 58 is_stmt 0 view .LVU125
+ 345 01dc 03F00101 		and	r1, r3, #1
+  54:Core/Src/main.c ****         but_2_state = (GPIOC_REG(GPIO_IDR) & BUT_2_MASK) != 0;
+ 346              		.loc 1 54 21 view .LVU126
+ 347 01e0 6C4A     		ldr	r2, .L16+16
+ 348 01e2 1180     		strh	r1, [r2]	@ movhi
+  55:Core/Src/main.c ****         but_3_state = (GPIOC_REG(GPIO_IDR) & BUT_3_MASK) != 0;
+ 349              		.loc 1 55 9 is_stmt 1 view .LVU127
+  55:Core/Src/main.c ****         but_3_state = (GPIOC_REG(GPIO_IDR) & BUT_3_MASK) != 0;
+ 350              		.loc 1 55 58 is_stmt 0 view .LVU128
+ 351 01e4 C3F34002 		ubfx	r2, r3, #1, #1
+  55:Core/Src/main.c ****         but_3_state = (GPIOC_REG(GPIO_IDR) & BUT_3_MASK) != 0;
+ 352              		.loc 1 55 21 view .LVU129
+ 353 01e8 6B48     		ldr	r0, .L16+20
+ 354 01ea 0280     		strh	r2, [r0]	@ movhi
+  56:Core/Src/main.c **** 
+ 355              		.loc 1 56 9 is_stmt 1 view .LVU130
+  56:Core/Src/main.c **** 
+ 356              		.loc 1 56 58 is_stmt 0 view .LVU131
+ 357 01ec C3F3C013 		ubfx	r3, r3, #7, #1
+  56:Core/Src/main.c **** 
+ 358              		.loc 1 56 21 view .LVU132
+ 359 01f0 6A48     		ldr	r0, .L16+24
+ 360 01f2 0380     		strh	r3, [r0]	@ movhi
+  58:Core/Src/main.c ****         if (but_2_state) { but_2_val = 1; }
+ 361              		.loc 1 58 9 is_stmt 1 view .LVU133
+  58:Core/Src/main.c ****         if (but_2_state) { but_2_val = 1; }
+ 362              		.loc 1 58 12 is_stmt 0 view .LVU134
+ 363 01f4 11B1     		cbz	r1, .L3
+  58:Core/Src/main.c ****         if (but_2_state) { but_2_val = 1; }
+ 364              		.loc 1 58 28 is_stmt 1 discriminator 1 view .LVU135
+  58:Core/Src/main.c ****         if (but_2_state) { but_2_val = 1; }
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 11
+
+
+ 365              		.loc 1 58 38 is_stmt 0 discriminator 1 view .LVU136
+ 366 01f6 6449     		ldr	r1, .L16+4
+ 367 01f8 0120     		movs	r0, #1
+ 368 01fa 0880     		strh	r0, [r1]	@ movhi
+ 369              	.L3:
+  59:Core/Src/main.c ****         if (but_3_state && but_3_prev == 0) {
+ 370              		.loc 1 59 9 is_stmt 1 view .LVU137
+  59:Core/Src/main.c ****         if (but_3_state && but_3_prev == 0) {
+ 371              		.loc 1 59 12 is_stmt 0 view .LVU138
+ 372 01fc 12B1     		cbz	r2, .L4
+  59:Core/Src/main.c ****         if (but_3_state && but_3_prev == 0) {
+ 373              		.loc 1 59 28 is_stmt 1 discriminator 1 view .LVU139
+  59:Core/Src/main.c ****         if (but_3_state && but_3_prev == 0) {
+ 374              		.loc 1 59 38 is_stmt 0 discriminator 1 view .LVU140
+ 375 01fe 614A     		ldr	r2, .L16
+ 376 0200 0121     		movs	r1, #1
+ 377 0202 1180     		strh	r1, [r2]	@ movhi
+ 378              	.L4:
+  60:Core/Src/main.c ****             but_3_val = !but_3_val;
+ 379              		.loc 1 60 9 is_stmt 1 view .LVU141
+  60:Core/Src/main.c ****             but_3_val = !but_3_val;
+ 380              		.loc 1 60 12 is_stmt 0 view .LVU142
+ 381 0204 43B1     		cbz	r3, .L5
+  60:Core/Src/main.c ****             but_3_val = !but_3_val;
+ 382              		.loc 1 60 39 discriminator 1 view .LVU143
+ 383 0206 664A     		ldr	r2, .L16+28
+ 384 0208 1288     		ldrh	r2, [r2]
+  60:Core/Src/main.c ****             but_3_val = !but_3_val;
+ 385              		.loc 1 60 25 discriminator 1 view .LVU144
+ 386 020a 2AB9     		cbnz	r2, .L5
+  61:Core/Src/main.c ****         }
+ 387              		.loc 1 61 13 is_stmt 1 view .LVU145
+  61:Core/Src/main.c ****         }
+ 388              		.loc 1 61 25 is_stmt 0 view .LVU146
+ 389 020c 6549     		ldr	r1, .L16+32
+ 390 020e 0A88     		ldrh	r2, [r1]
+ 391 0210 B2FA82F2 		clz	r2, r2
+ 392 0214 5209     		lsrs	r2, r2, #5
+  61:Core/Src/main.c ****         }
+ 393              		.loc 1 61 23 view .LVU147
+ 394 0216 0A80     		strh	r2, [r1]	@ movhi
+ 395              	.L5:
+  63:Core/Src/main.c **** 
+ 396              		.loc 1 63 9 is_stmt 1 view .LVU148
+  63:Core/Src/main.c **** 
+ 397              		.loc 1 63 20 is_stmt 0 view .LVU149
+ 398 0218 614A     		ldr	r2, .L16+28
+ 399 021a 1380     		strh	r3, [r2]	@ movhi
+  66:Core/Src/main.c ****         led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 400              		.loc 1 66 9 is_stmt 1 view .LVU150
+  66:Core/Src/main.c ****         led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 401              		.loc 1 66 26 is_stmt 0 view .LVU151
+ 402 021c 5B4B     		ldr	r3, .L16+8
+ 403 021e 5B69     		ldr	r3, [r3, #20]
+  66:Core/Src/main.c ****         led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 404              		.loc 1 66 46 view .LVU152
+ 405 0220 03F00101 		and	r1, r3, #1
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 12
+
+
+  66:Core/Src/main.c ****         led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 406              		.loc 1 66 23 view .LVU153
+ 407 0224 604A     		ldr	r2, .L16+36
+ 408 0226 1180     		strh	r1, [r2]	@ movhi
+  67:Core/Src/main.c ****         led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 409              		.loc 1 67 9 is_stmt 1 view .LVU154
+  67:Core/Src/main.c ****         led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 410              		.loc 1 67 60 is_stmt 0 view .LVU155
+ 411 0228 C3F34001 		ubfx	r1, r3, #1, #1
+  67:Core/Src/main.c ****         led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 412              		.loc 1 67 23 view .LVU156
+ 413 022c 5F4A     		ldr	r2, .L16+40
+ 414 022e 1180     		strh	r1, [r2]	@ movhi
+  68:Core/Src/main.c ****         led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 415              		.loc 1 68 9 is_stmt 1 view .LVU157
+  68:Core/Src/main.c ****         led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 416              		.loc 1 68 60 is_stmt 0 view .LVU158
+ 417 0230 C3F30011 		ubfx	r1, r3, #4, #1
+  68:Core/Src/main.c ****         led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 418              		.loc 1 68 23 view .LVU159
+ 419 0234 5E4A     		ldr	r2, .L16+44
+ 420 0236 1180     		strh	r1, [r2]	@ movhi
+  69:Core/Src/main.c ****         led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 421              		.loc 1 69 9 is_stmt 1 view .LVU160
+  69:Core/Src/main.c ****         led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 422              		.loc 1 69 60 is_stmt 0 view .LVU161
+ 423 0238 C3F34011 		ubfx	r1, r3, #5, #1
+  69:Core/Src/main.c ****         led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 424              		.loc 1 69 23 view .LVU162
+ 425 023c 5D4A     		ldr	r2, .L16+48
+ 426 023e 1180     		strh	r1, [r2]	@ movhi
+  70:Core/Src/main.c ****         led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 427              		.loc 1 70 9 is_stmt 1 view .LVU163
+  70:Core/Src/main.c ****         led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 428              		.loc 1 70 60 is_stmt 0 view .LVU164
+ 429 0240 C3F38011 		ubfx	r1, r3, #6, #1
+  70:Core/Src/main.c ****         led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 430              		.loc 1 70 23 view .LVU165
+ 431 0244 5C4A     		ldr	r2, .L16+52
+ 432 0246 1180     		strh	r1, [r2]	@ movhi
+  71:Core/Src/main.c **** 
+ 433              		.loc 1 71 9 is_stmt 1 view .LVU166
+  71:Core/Src/main.c **** 
+ 434              		.loc 1 71 60 is_stmt 0 view .LVU167
+ 435 0248 C3F3C013 		ubfx	r3, r3, #7, #1
+  71:Core/Src/main.c **** 
+ 436              		.loc 1 71 23 view .LVU168
+ 437 024c 5B4A     		ldr	r2, .L16+56
+ 438 024e 1380     		strh	r3, [r2]	@ movhi
+  73:Core/Src/main.c ****             if (but_1_val) {
+ 439              		.loc 1 73 9 is_stmt 1 view .LVU169
+  73:Core/Src/main.c ****             if (but_1_val) {
+ 440              		.loc 1 73 13 is_stmt 0 view .LVU170
+ 441 0250 544B     		ldr	r3, .L16+32
+ 442 0252 1B88     		ldrh	r3, [r3]
+  73:Core/Src/main.c ****             if (but_1_val) {
+ 443              		.loc 1 73 12 view .LVU171
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 13
+
+
+ 444 0254 002B     		cmp	r3, #0
+ 445 0256 ADD1     		bne	.L6
+  74:Core/Src/main.c ****                 delay(delay_time);
+ 446              		.loc 1 74 13 is_stmt 1 view .LVU172
+  74:Core/Src/main.c ****                 delay(delay_time);
+ 447              		.loc 1 74 17 is_stmt 0 view .LVU173
+ 448 0258 4B4B     		ldr	r3, .L16+4
+ 449 025a 1B88     		ldrh	r3, [r3]
+  74:Core/Src/main.c ****                 delay(delay_time);
+ 450              		.loc 1 74 16 view .LVU174
+ 451 025c 002B     		cmp	r3, #0
+ 452 025e 7FF40EAF 		bne	.L13
+ 453              	.L7:
+ 112:Core/Src/main.c ****                 delay(delay_time);
+ 454              		.loc 1 112 13 is_stmt 1 view .LVU175
+ 112:Core/Src/main.c ****                 delay(delay_time);
+ 455              		.loc 1 112 17 is_stmt 0 view .LVU176
+ 456 0262 4B4B     		ldr	r3, .L16+12
+ 457 0264 1B88     		ldrh	r3, [r3]
+ 112:Core/Src/main.c ****                 delay(delay_time);
+ 458              		.loc 1 112 16 view .LVU177
+ 459 0266 002B     		cmp	r3, #0
+ 460 0268 AED0     		beq	.L2
+ 113:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK;
+ 461              		.loc 1 113 17 is_stmt 1 view .LVU178
+ 462 026a 41F28830 		movw	r0, #5000
+ 463 026e FFF7FEFF 		bl	delay
+ 464              	.LVL13:
+ 114:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK;
+ 465              		.loc 1 114 17 view .LVU179
+ 466 0272 464C     		ldr	r4, .L16+8
+ 467 0274 A369     		ldr	r3, [r4, #24]
+ 114:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK;
+ 468              		.loc 1 114 38 is_stmt 0 view .LVU180
+ 469 0276 43F08002 		orr	r2, r3, #128
+ 470 027a A261     		str	r2, [r4, #24]
+ 115:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+ 471              		.loc 1 115 17 is_stmt 1 view .LVU181
+ 115:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+ 472              		.loc 1 115 38 is_stmt 0 view .LVU182
+ 473 027c 43F0C002 		orr	r2, r3, #192
+ 474 0280 A261     		str	r2, [r4, #24]
+ 116:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK;
+ 475              		.loc 1 116 17 is_stmt 1 view .LVU183
+ 116:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK;
+ 476              		.loc 1 116 38 is_stmt 0 view .LVU184
+ 477 0282 43F0E002 		orr	r2, r3, #224
+ 478 0286 A261     		str	r2, [r4, #24]
+ 117:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK;
+ 479              		.loc 1 117 17 is_stmt 1 view .LVU185
+ 117:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK;
+ 480              		.loc 1 117 38 is_stmt 0 view .LVU186
+ 481 0288 43F0F002 		orr	r2, r3, #240
+ 482 028c A261     		str	r2, [r4, #24]
+ 118:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK;
+ 483              		.loc 1 118 17 is_stmt 1 view .LVU187
+ 118:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK;
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 14
+
+
+ 484              		.loc 1 118 38 is_stmt 0 view .LVU188
+ 485 028e 43F0F202 		orr	r2, r3, #242
+ 486 0292 A261     		str	r2, [r4, #24]
+ 119:Core/Src/main.c **** 
+ 487              		.loc 1 119 17 is_stmt 1 view .LVU189
+ 119:Core/Src/main.c **** 
+ 488              		.loc 1 119 38 is_stmt 0 view .LVU190
+ 489 0294 43F0F303 		orr	r3, r3, #243
+ 490 0298 A361     		str	r3, [r4, #24]
+ 121:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 491              		.loc 1 121 17 is_stmt 1 view .LVU191
+ 121:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 492              		.loc 1 121 34 is_stmt 0 view .LVU192
+ 493 029a 6369     		ldr	r3, [r4, #20]
+ 121:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 494              		.loc 1 121 54 view .LVU193
+ 495 029c 03F00102 		and	r2, r3, #1
+ 121:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 496              		.loc 1 121 31 view .LVU194
+ 497 02a0 414D     		ldr	r5, .L16+36
+ 498 02a2 2A80     		strh	r2, [r5]	@ movhi
+ 122:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 499              		.loc 1 122 17 is_stmt 1 view .LVU195
+ 122:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 500              		.loc 1 122 68 is_stmt 0 view .LVU196
+ 501 02a4 C3F34002 		ubfx	r2, r3, #1, #1
+ 122:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 502              		.loc 1 122 31 view .LVU197
+ 503 02a8 404E     		ldr	r6, .L16+40
+ 504 02aa 3280     		strh	r2, [r6]	@ movhi
+ 123:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 505              		.loc 1 123 17 is_stmt 1 view .LVU198
+ 123:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 506              		.loc 1 123 68 is_stmt 0 view .LVU199
+ 507 02ac C3F30012 		ubfx	r2, r3, #4, #1
+ 123:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 508              		.loc 1 123 31 view .LVU200
+ 509 02b0 3F4F     		ldr	r7, .L16+44
+ 510 02b2 3A80     		strh	r2, [r7]	@ movhi
+ 124:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 511              		.loc 1 124 17 is_stmt 1 view .LVU201
+ 124:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 512              		.loc 1 124 68 is_stmt 0 view .LVU202
+ 513 02b4 C3F34012 		ubfx	r2, r3, #5, #1
+ 124:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 514              		.loc 1 124 31 view .LVU203
+ 515 02b8 DFF8F880 		ldr	r8, .L16+48
+ 516 02bc A8F80020 		strh	r2, [r8]	@ movhi
+ 125:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 517              		.loc 1 125 17 is_stmt 1 view .LVU204
+ 125:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 518              		.loc 1 125 68 is_stmt 0 view .LVU205
+ 519 02c0 C3F38012 		ubfx	r2, r3, #6, #1
+ 125:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 520              		.loc 1 125 31 view .LVU206
+ 521 02c4 DFF8F090 		ldr	r9, .L16+52
+ 522 02c8 A9F80020 		strh	r2, [r9]	@ movhi
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 15
+
+
+ 126:Core/Src/main.c **** 
+ 523              		.loc 1 126 17 is_stmt 1 view .LVU207
+ 126:Core/Src/main.c **** 
+ 524              		.loc 1 126 68 is_stmt 0 view .LVU208
+ 525 02cc C3F3C013 		ubfx	r3, r3, #7, #1
+ 126:Core/Src/main.c **** 
+ 526              		.loc 1 126 31 view .LVU209
+ 527 02d0 DFF8E8A0 		ldr	r10, .L16+56
+ 528 02d4 AAF80030 		strh	r3, [r10]	@ movhi
+ 128:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK << 16;
+ 529              		.loc 1 128 17 is_stmt 1 view .LVU210
+ 530 02d8 41F28830 		movw	r0, #5000
+ 531 02dc FFF7FEFF 		bl	delay
+ 532              	.LVL14:
+ 129:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 533              		.loc 1 129 17 view .LVU211
+ 534 02e0 A369     		ldr	r3, [r4, #24]
+ 129:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 535              		.loc 1 129 38 is_stmt 0 view .LVU212
+ 536 02e2 43F40003 		orr	r3, r3, #8388608
+ 537 02e6 A361     		str	r3, [r4, #24]
+ 130:Core/Src/main.c ****                 delay(delay_time);
+ 538              		.loc 1 130 17 is_stmt 1 view .LVU213
+ 130:Core/Src/main.c ****                 delay(delay_time);
+ 539              		.loc 1 130 34 is_stmt 0 view .LVU214
+ 540 02e8 6369     		ldr	r3, [r4, #20]
+ 130:Core/Src/main.c ****                 delay(delay_time);
+ 541              		.loc 1 130 68 view .LVU215
+ 542 02ea C3F3C013 		ubfx	r3, r3, #7, #1
+ 130:Core/Src/main.c ****                 delay(delay_time);
+ 543              		.loc 1 130 31 view .LVU216
+ 544 02ee AAF80030 		strh	r3, [r10]	@ movhi
+ 131:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK << 16;
+ 545              		.loc 1 131 17 is_stmt 1 view .LVU217
+ 546 02f2 41F28830 		movw	r0, #5000
+ 547 02f6 FFF7FEFF 		bl	delay
+ 548              	.LVL15:
+ 132:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 549              		.loc 1 132 17 view .LVU218
+ 550 02fa A369     		ldr	r3, [r4, #24]
+ 132:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 551              		.loc 1 132 38 is_stmt 0 view .LVU219
+ 552 02fc 43F48003 		orr	r3, r3, #4194304
+ 553 0300 A361     		str	r3, [r4, #24]
+ 133:Core/Src/main.c ****                 delay(delay_time);
+ 554              		.loc 1 133 17 is_stmt 1 view .LVU220
+ 133:Core/Src/main.c ****                 delay(delay_time);
+ 555              		.loc 1 133 34 is_stmt 0 view .LVU221
+ 556 0302 6369     		ldr	r3, [r4, #20]
+ 133:Core/Src/main.c ****                 delay(delay_time);
+ 557              		.loc 1 133 68 view .LVU222
+ 558 0304 C3F38013 		ubfx	r3, r3, #6, #1
+ 133:Core/Src/main.c ****                 delay(delay_time);
+ 559              		.loc 1 133 31 view .LVU223
+ 560 0308 A9F80030 		strh	r3, [r9]	@ movhi
+ 134:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+ 561              		.loc 1 134 17 is_stmt 1 view .LVU224
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 16
+
+
+ 562 030c 41F28830 		movw	r0, #5000
+ 563 0310 FFF7FEFF 		bl	delay
+ 564              	.LVL16:
+ 135:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 565              		.loc 1 135 17 view .LVU225
+ 566 0314 A369     		ldr	r3, [r4, #24]
+ 135:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 567              		.loc 1 135 38 is_stmt 0 view .LVU226
+ 568 0316 43F40013 		orr	r3, r3, #2097152
+ 569 031a A361     		str	r3, [r4, #24]
+ 136:Core/Src/main.c ****                 delay(delay_time);
+ 570              		.loc 1 136 17 is_stmt 1 view .LVU227
+ 136:Core/Src/main.c ****                 delay(delay_time);
+ 571              		.loc 1 136 34 is_stmt 0 view .LVU228
+ 572 031c 6369     		ldr	r3, [r4, #20]
+ 136:Core/Src/main.c ****                 delay(delay_time);
+ 573              		.loc 1 136 68 view .LVU229
+ 574 031e C3F34013 		ubfx	r3, r3, #5, #1
+ 136:Core/Src/main.c ****                 delay(delay_time);
+ 575              		.loc 1 136 31 view .LVU230
+ 576 0322 A8F80030 		strh	r3, [r8]	@ movhi
+ 137:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK << 16;
+ 577              		.loc 1 137 17 is_stmt 1 view .LVU231
+ 578 0326 41F28830 		movw	r0, #5000
+ 579 032a FFF7FEFF 		bl	delay
+ 580              	.LVL17:
+ 138:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 581              		.loc 1 138 17 view .LVU232
+ 582 032e A369     		ldr	r3, [r4, #24]
+ 138:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 583              		.loc 1 138 38 is_stmt 0 view .LVU233
+ 584 0330 43F48013 		orr	r3, r3, #1048576
+ 585 0334 A361     		str	r3, [r4, #24]
+ 139:Core/Src/main.c ****                 delay(delay_time);
+ 586              		.loc 1 139 17 is_stmt 1 view .LVU234
+ 139:Core/Src/main.c ****                 delay(delay_time);
+ 587              		.loc 1 139 34 is_stmt 0 view .LVU235
+ 588 0336 6369     		ldr	r3, [r4, #20]
+ 139:Core/Src/main.c ****                 delay(delay_time);
+ 589              		.loc 1 139 68 view .LVU236
+ 590 0338 C3F30013 		ubfx	r3, r3, #4, #1
+ 139:Core/Src/main.c ****                 delay(delay_time);
+ 591              		.loc 1 139 31 view .LVU237
+ 592 033c 3B80     		strh	r3, [r7]	@ movhi
+ 140:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK << 16;
+ 593              		.loc 1 140 17 is_stmt 1 view .LVU238
+ 594 033e 41F28830 		movw	r0, #5000
+ 595 0342 FFF7FEFF 		bl	delay
+ 596              	.LVL18:
+ 141:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 597              		.loc 1 141 17 view .LVU239
+ 598 0346 A369     		ldr	r3, [r4, #24]
+ 141:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 599              		.loc 1 141 38 is_stmt 0 view .LVU240
+ 600 0348 43F40033 		orr	r3, r3, #131072
+ 601 034c A361     		str	r3, [r4, #24]
+ 142:Core/Src/main.c ****                 delay(delay_time);
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 17
+
+
+ 602              		.loc 1 142 17 is_stmt 1 view .LVU241
+ 142:Core/Src/main.c ****                 delay(delay_time);
+ 603              		.loc 1 142 34 is_stmt 0 view .LVU242
+ 604 034e 6369     		ldr	r3, [r4, #20]
+ 142:Core/Src/main.c ****                 delay(delay_time);
+ 605              		.loc 1 142 68 view .LVU243
+ 606 0350 C3F34003 		ubfx	r3, r3, #1, #1
+ 142:Core/Src/main.c ****                 delay(delay_time);
+ 607              		.loc 1 142 31 view .LVU244
+ 608 0354 3380     		strh	r3, [r6]	@ movhi
+ 143:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK << 16;
+ 609              		.loc 1 143 17 is_stmt 1 view .LVU245
+ 610 0356 41F28830 		movw	r0, #5000
+ 611 035a FFF7FEFF 		bl	delay
+ 612              	.LVL19:
+ 144:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 613              		.loc 1 144 17 view .LVU246
+ 614 035e A369     		ldr	r3, [r4, #24]
+ 144:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 615              		.loc 1 144 38 is_stmt 0 view .LVU247
+ 616 0360 43F48033 		orr	r3, r3, #65536
+ 617 0364 A361     		str	r3, [r4, #24]
+ 145:Core/Src/main.c ****                 delay(delay_time);
+ 618              		.loc 1 145 17 is_stmt 1 view .LVU248
+ 145:Core/Src/main.c ****                 delay(delay_time);
+ 619              		.loc 1 145 34 is_stmt 0 view .LVU249
+ 620 0366 6369     		ldr	r3, [r4, #20]
+ 145:Core/Src/main.c ****                 delay(delay_time);
+ 621              		.loc 1 145 54 view .LVU250
+ 622 0368 03F00103 		and	r3, r3, #1
+ 145:Core/Src/main.c ****                 delay(delay_time);
+ 623              		.loc 1 145 31 view .LVU251
+ 624 036c 2B80     		strh	r3, [r5]	@ movhi
+ 146:Core/Src/main.c ****                 but_1_val = 0;
+ 625              		.loc 1 146 17 is_stmt 1 view .LVU252
+ 626 036e 41F28830 		movw	r0, #5000
+ 627 0372 FFF7FEFF 		bl	delay
+ 628              	.LVL20:
+ 147:Core/Src/main.c ****                 but_2_val = 0;
+ 629              		.loc 1 147 17 view .LVU253
+ 147:Core/Src/main.c ****                 but_2_val = 0;
+ 630              		.loc 1 147 27 is_stmt 0 view .LVU254
+ 631 0376 0023     		movs	r3, #0
+ 632 0378 034A     		ldr	r2, .L16+4
+ 633 037a 1380     		strh	r3, [r2]	@ movhi
+ 148:Core/Src/main.c ****             }
+ 634              		.loc 1 148 17 is_stmt 1 view .LVU255
+ 148:Core/Src/main.c ****             }
+ 635              		.loc 1 148 27 is_stmt 0 view .LVU256
+ 636 037c 014A     		ldr	r2, .L16
+ 637 037e 1380     		strh	r3, [r2]	@ movhi
+ 638 0380 22E7     		b	.L2
+ 639              	.L17:
+ 640 0382 00BF     		.align	2
+ 641              	.L16:
+ 642 0384 00000000 		.word	but_2_val
+ 643 0388 00000000 		.word	but_1_val
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 18
+
+
+ 644 038c 00000240 		.word	1073872896
+ 645 0390 00000000 		.word	var
+ 646 0394 00000000 		.word	but_1_state
+ 647 0398 00000000 		.word	but_2_state
+ 648 039c 00000000 		.word	but_3_state
+ 649 03a0 00000000 		.word	but_3_prev
+ 650 03a4 00000000 		.word	but_3_val
+ 651 03a8 00000000 		.word	led_pin_1_val
+ 652 03ac 00000000 		.word	led_pin_2_val
+ 653 03b0 00000000 		.word	led_pin_3_val
+ 654 03b4 00000000 		.word	led_pin_4_val
+ 655 03b8 00000000 		.word	led_pin_5_val
+ 656 03bc 00000000 		.word	led_pin_6_val
+ 657              	.L11:
+ 152:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK;
+ 658              		.loc 1 152 17 is_stmt 1 view .LVU257
+ 659 03c0 41F28830 		movw	r0, #5000
+ 660 03c4 FFF7FEFF 		bl	delay
+ 661              	.LVL21:
+ 153:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 662              		.loc 1 153 17 view .LVU258
+ 663 03c8 874C     		ldr	r4, .L18
+ 664 03ca A369     		ldr	r3, [r4, #24]
+ 153:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 665              		.loc 1 153 38 is_stmt 0 view .LVU259
+ 666 03cc 43F00103 		orr	r3, r3, #1
+ 667 03d0 A361     		str	r3, [r4, #24]
+ 154:Core/Src/main.c ****                 delay(delay_time);
+ 668              		.loc 1 154 17 is_stmt 1 view .LVU260
+ 154:Core/Src/main.c ****                 delay(delay_time);
+ 669              		.loc 1 154 34 is_stmt 0 view .LVU261
+ 670 03d2 6369     		ldr	r3, [r4, #20]
+ 154:Core/Src/main.c ****                 delay(delay_time);
+ 671              		.loc 1 154 54 view .LVU262
+ 672 03d4 03F00103 		and	r3, r3, #1
+ 154:Core/Src/main.c ****                 delay(delay_time);
+ 673              		.loc 1 154 31 view .LVU263
+ 674 03d8 DFF824A2 		ldr	r10, .L18+24
+ 675 03dc AAF80030 		strh	r3, [r10]	@ movhi
+ 155:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK;
+ 676              		.loc 1 155 17 is_stmt 1 view .LVU264
+ 677 03e0 41F28830 		movw	r0, #5000
+ 678 03e4 FFF7FEFF 		bl	delay
+ 679              	.LVL22:
+ 156:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 680              		.loc 1 156 17 view .LVU265
+ 681 03e8 A369     		ldr	r3, [r4, #24]
+ 156:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 682              		.loc 1 156 38 is_stmt 0 view .LVU266
+ 683 03ea 43F00203 		orr	r3, r3, #2
+ 684 03ee A361     		str	r3, [r4, #24]
+ 157:Core/Src/main.c ****                 delay(delay_time);
+ 685              		.loc 1 157 17 is_stmt 1 view .LVU267
+ 157:Core/Src/main.c ****                 delay(delay_time);
+ 686              		.loc 1 157 34 is_stmt 0 view .LVU268
+ 687 03f0 6369     		ldr	r3, [r4, #20]
+ 157:Core/Src/main.c ****                 delay(delay_time);
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 19
+
+
+ 688              		.loc 1 157 68 view .LVU269
+ 689 03f2 C3F34003 		ubfx	r3, r3, #1, #1
+ 157:Core/Src/main.c ****                 delay(delay_time);
+ 690              		.loc 1 157 31 view .LVU270
+ 691 03f6 DFF80C92 		ldr	r9, .L18+28
+ 692 03fa A9F80030 		strh	r3, [r9]	@ movhi
+ 158:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK;
+ 693              		.loc 1 158 17 is_stmt 1 view .LVU271
+ 694 03fe 41F28830 		movw	r0, #5000
+ 695 0402 FFF7FEFF 		bl	delay
+ 696              	.LVL23:
+ 159:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 697              		.loc 1 159 17 view .LVU272
+ 698 0406 A369     		ldr	r3, [r4, #24]
+ 159:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 699              		.loc 1 159 38 is_stmt 0 view .LVU273
+ 700 0408 43F01003 		orr	r3, r3, #16
+ 701 040c A361     		str	r3, [r4, #24]
+ 160:Core/Src/main.c ****                 delay(delay_time);
+ 702              		.loc 1 160 17 is_stmt 1 view .LVU274
+ 160:Core/Src/main.c ****                 delay(delay_time);
+ 703              		.loc 1 160 34 is_stmt 0 view .LVU275
+ 704 040e 6369     		ldr	r3, [r4, #20]
+ 160:Core/Src/main.c ****                 delay(delay_time);
+ 705              		.loc 1 160 68 view .LVU276
+ 706 0410 C3F30013 		ubfx	r3, r3, #4, #1
+ 160:Core/Src/main.c ****                 delay(delay_time);
+ 707              		.loc 1 160 31 view .LVU277
+ 708 0414 DFF8F081 		ldr	r8, .L18+32
+ 709 0418 A8F80030 		strh	r3, [r8]	@ movhi
+ 161:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+ 710              		.loc 1 161 17 is_stmt 1 view .LVU278
+ 711 041c 41F28830 		movw	r0, #5000
+ 712 0420 FFF7FEFF 		bl	delay
+ 713              	.LVL24:
+ 162:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 714              		.loc 1 162 17 view .LVU279
+ 715 0424 A369     		ldr	r3, [r4, #24]
+ 162:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 716              		.loc 1 162 38 is_stmt 0 view .LVU280
+ 717 0426 43F02003 		orr	r3, r3, #32
+ 718 042a A361     		str	r3, [r4, #24]
+ 163:Core/Src/main.c ****                 delay(delay_time);
+ 719              		.loc 1 163 17 is_stmt 1 view .LVU281
+ 163:Core/Src/main.c ****                 delay(delay_time);
+ 720              		.loc 1 163 34 is_stmt 0 view .LVU282
+ 721 042c 6369     		ldr	r3, [r4, #20]
+ 163:Core/Src/main.c ****                 delay(delay_time);
+ 722              		.loc 1 163 68 view .LVU283
+ 723 042e C3F34013 		ubfx	r3, r3, #5, #1
+ 163:Core/Src/main.c ****                 delay(delay_time);
+ 724              		.loc 1 163 31 view .LVU284
+ 725 0432 6E4F     		ldr	r7, .L18+4
+ 726 0434 3B80     		strh	r3, [r7]	@ movhi
+ 164:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK;
+ 727              		.loc 1 164 17 is_stmt 1 view .LVU285
+ 728 0436 41F28830 		movw	r0, #5000
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 20
+
+
+ 729 043a FFF7FEFF 		bl	delay
+ 730              	.LVL25:
+ 165:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 731              		.loc 1 165 17 view .LVU286
+ 732 043e A369     		ldr	r3, [r4, #24]
+ 165:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 733              		.loc 1 165 38 is_stmt 0 view .LVU287
+ 734 0440 43F04003 		orr	r3, r3, #64
+ 735 0444 A361     		str	r3, [r4, #24]
+ 166:Core/Src/main.c ****                 delay(delay_time);
+ 736              		.loc 1 166 17 is_stmt 1 view .LVU288
+ 166:Core/Src/main.c ****                 delay(delay_time);
+ 737              		.loc 1 166 34 is_stmt 0 view .LVU289
+ 738 0446 6369     		ldr	r3, [r4, #20]
+ 166:Core/Src/main.c ****                 delay(delay_time);
+ 739              		.loc 1 166 68 view .LVU290
+ 740 0448 C3F38013 		ubfx	r3, r3, #6, #1
+ 166:Core/Src/main.c ****                 delay(delay_time);
+ 741              		.loc 1 166 31 view .LVU291
+ 742 044c 684E     		ldr	r6, .L18+8
+ 743 044e 3380     		strh	r3, [r6]	@ movhi
+ 167:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK;
+ 744              		.loc 1 167 17 is_stmt 1 view .LVU292
+ 745 0450 41F28830 		movw	r0, #5000
+ 746 0454 FFF7FEFF 		bl	delay
+ 747              	.LVL26:
+ 168:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 748              		.loc 1 168 17 view .LVU293
+ 749 0458 A369     		ldr	r3, [r4, #24]
+ 168:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 750              		.loc 1 168 38 is_stmt 0 view .LVU294
+ 751 045a 43F08003 		orr	r3, r3, #128
+ 752 045e A361     		str	r3, [r4, #24]
+ 169:Core/Src/main.c ****                 delay(delay_time);
+ 753              		.loc 1 169 17 is_stmt 1 view .LVU295
+ 169:Core/Src/main.c ****                 delay(delay_time);
+ 754              		.loc 1 169 34 is_stmt 0 view .LVU296
+ 755 0460 6369     		ldr	r3, [r4, #20]
+ 169:Core/Src/main.c ****                 delay(delay_time);
+ 756              		.loc 1 169 68 view .LVU297
+ 757 0462 C3F3C013 		ubfx	r3, r3, #7, #1
+ 169:Core/Src/main.c ****                 delay(delay_time);
+ 758              		.loc 1 169 31 view .LVU298
+ 759 0466 634D     		ldr	r5, .L18+12
+ 760 0468 2B80     		strh	r3, [r5]	@ movhi
+ 170:Core/Src/main.c **** 
+ 761              		.loc 1 170 17 is_stmt 1 view .LVU299
+ 762 046a 41F28830 		movw	r0, #5000
+ 763 046e FFF7FEFF 		bl	delay
+ 764              	.LVL27:
+ 172:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK << 16;
+ 765              		.loc 1 172 17 view .LVU300
+ 766 0472 A369     		ldr	r3, [r4, #24]
+ 172:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK << 16;
+ 767              		.loc 1 172 38 is_stmt 0 view .LVU301
+ 768 0474 43F48032 		orr	r2, r3, #65536
+ 769 0478 A261     		str	r2, [r4, #24]
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 21
+
+
+ 173:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK << 16;
+ 770              		.loc 1 173 17 is_stmt 1 view .LVU302
+ 173:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK << 16;
+ 771              		.loc 1 173 38 is_stmt 0 view .LVU303
+ 772 047a 43F44032 		orr	r2, r3, #196608
+ 773 047e A261     		str	r2, [r4, #24]
+ 174:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+ 774              		.loc 1 174 17 is_stmt 1 view .LVU304
+ 174:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+ 775              		.loc 1 174 38 is_stmt 0 view .LVU305
+ 776 0480 43F49812 		orr	r2, r3, #1245184
+ 777 0484 A261     		str	r2, [r4, #24]
+ 175:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK << 16;
+ 778              		.loc 1 175 17 is_stmt 1 view .LVU306
+ 175:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK << 16;
+ 779              		.loc 1 175 38 is_stmt 0 view .LVU307
+ 780 0486 43F44C12 		orr	r2, r3, #3342336
+ 781 048a A261     		str	r2, [r4, #24]
+ 176:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK << 16;
+ 782              		.loc 1 176 17 is_stmt 1 view .LVU308
+ 176:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK << 16;
+ 783              		.loc 1 176 38 is_stmt 0 view .LVU309
+ 784 048c 43F4E602 		orr	r2, r3, #7536640
+ 785 0490 A261     		str	r2, [r4, #24]
+ 177:Core/Src/main.c **** 
+ 786              		.loc 1 177 17 is_stmt 1 view .LVU310
+ 177:Core/Src/main.c **** 
+ 787              		.loc 1 177 38 is_stmt 0 view .LVU311
+ 788 0492 43F47303 		orr	r3, r3, #15925248
+ 789 0496 A361     		str	r3, [r4, #24]
+ 179:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 790              		.loc 1 179 17 is_stmt 1 view .LVU312
+ 179:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 791              		.loc 1 179 34 is_stmt 0 view .LVU313
+ 792 0498 6369     		ldr	r3, [r4, #20]
+ 179:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 793              		.loc 1 179 54 view .LVU314
+ 794 049a 03F00102 		and	r2, r3, #1
+ 179:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 795              		.loc 1 179 31 view .LVU315
+ 796 049e AAF80020 		strh	r2, [r10]	@ movhi
+ 180:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 797              		.loc 1 180 17 is_stmt 1 view .LVU316
+ 180:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 798              		.loc 1 180 68 is_stmt 0 view .LVU317
+ 799 04a2 C3F34002 		ubfx	r2, r3, #1, #1
+ 180:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 800              		.loc 1 180 31 view .LVU318
+ 801 04a6 A9F80020 		strh	r2, [r9]	@ movhi
+ 181:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 802              		.loc 1 181 17 is_stmt 1 view .LVU319
+ 181:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 803              		.loc 1 181 68 is_stmt 0 view .LVU320
+ 804 04aa C3F30012 		ubfx	r2, r3, #4, #1
+ 181:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 805              		.loc 1 181 31 view .LVU321
+ 806 04ae A8F80020 		strh	r2, [r8]	@ movhi
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 22
+
+
+ 182:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 807              		.loc 1 182 17 is_stmt 1 view .LVU322
+ 182:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 808              		.loc 1 182 68 is_stmt 0 view .LVU323
+ 809 04b2 C3F34012 		ubfx	r2, r3, #5, #1
+ 182:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 810              		.loc 1 182 31 view .LVU324
+ 811 04b6 3A80     		strh	r2, [r7]	@ movhi
+ 183:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 812              		.loc 1 183 17 is_stmt 1 view .LVU325
+ 183:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 813              		.loc 1 183 68 is_stmt 0 view .LVU326
+ 814 04b8 C3F38012 		ubfx	r2, r3, #6, #1
+ 183:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 815              		.loc 1 183 31 view .LVU327
+ 816 04bc 3280     		strh	r2, [r6]	@ movhi
+ 184:Core/Src/main.c **** 
+ 817              		.loc 1 184 17 is_stmt 1 view .LVU328
+ 184:Core/Src/main.c **** 
+ 818              		.loc 1 184 68 is_stmt 0 view .LVU329
+ 819 04be C3F3C013 		ubfx	r3, r3, #7, #1
+ 184:Core/Src/main.c **** 
+ 820              		.loc 1 184 31 view .LVU330
+ 821 04c2 2B80     		strh	r3, [r5]	@ movhi
+ 186:Core/Src/main.c ****                 but_2_val = 0;
+ 822              		.loc 1 186 17 is_stmt 1 view .LVU331
+ 186:Core/Src/main.c ****                 but_2_val = 0;
+ 823              		.loc 1 186 27 is_stmt 0 view .LVU332
+ 824 04c4 0023     		movs	r3, #0
+ 825 04c6 4C4A     		ldr	r2, .L18+16
+ 826 04c8 1380     		strh	r3, [r2]	@ movhi
+ 187:Core/Src/main.c ****             }
+ 827              		.loc 1 187 17 is_stmt 1 view .LVU333
+ 187:Core/Src/main.c ****             }
+ 828              		.loc 1 187 27 is_stmt 0 view .LVU334
+ 829 04ca 4C4A     		ldr	r2, .L18+20
+ 830 04cc 1380     		strh	r3, [r2]	@ movhi
+ 831 04ce 76E6     		b	.L9
+ 832              	.L12:
+ 190:Core/Src/main.c ****                 delay(delay_time);
+ 833              		.loc 1 190 17 is_stmt 1 view .LVU335
+ 834 04d0 41F28830 		movw	r0, #5000
+ 835 04d4 FFF7FEFF 		bl	delay
+ 836              	.LVL28:
+ 191:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK;
+ 837              		.loc 1 191 17 view .LVU336
+ 838 04d8 434C     		ldr	r4, .L18
+ 839 04da A369     		ldr	r3, [r4, #24]
+ 840              		.loc 1 191 38 is_stmt 0 view .LVU337
+ 841 04dc 43F08002 		orr	r2, r3, #128
+ 842 04e0 A261     		str	r2, [r4, #24]
+ 192:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK;
+ 843              		.loc 1 192 17 is_stmt 1 view .LVU338
+ 844              		.loc 1 192 38 is_stmt 0 view .LVU339
+ 845 04e2 43F0C002 		orr	r2, r3, #192
+ 846 04e6 A261     		str	r2, [r4, #24]
+ 193:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 23
+
+
+ 847              		.loc 1 193 17 is_stmt 1 view .LVU340
+ 848              		.loc 1 193 38 is_stmt 0 view .LVU341
+ 849 04e8 43F0E002 		orr	r2, r3, #224
+ 850 04ec A261     		str	r2, [r4, #24]
+ 194:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK;
+ 851              		.loc 1 194 17 is_stmt 1 view .LVU342
+ 852              		.loc 1 194 38 is_stmt 0 view .LVU343
+ 853 04ee 43F0F002 		orr	r2, r3, #240
+ 854 04f2 A261     		str	r2, [r4, #24]
+ 195:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK;
+ 855              		.loc 1 195 17 is_stmt 1 view .LVU344
+ 856              		.loc 1 195 38 is_stmt 0 view .LVU345
+ 857 04f4 43F0F202 		orr	r2, r3, #242
+ 858 04f8 A261     		str	r2, [r4, #24]
+ 196:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK;
+ 859              		.loc 1 196 17 is_stmt 1 view .LVU346
+ 860              		.loc 1 196 38 is_stmt 0 view .LVU347
+ 861 04fa 43F0F303 		orr	r3, r3, #243
+ 862 04fe A361     		str	r3, [r4, #24]
+ 197:Core/Src/main.c **** 
+ 198:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 863              		.loc 1 198 17 is_stmt 1 view .LVU348
+ 864              		.loc 1 198 34 is_stmt 0 view .LVU349
+ 865 0500 6369     		ldr	r3, [r4, #20]
+ 866              		.loc 1 198 54 view .LVU350
+ 867 0502 03F00102 		and	r2, r3, #1
+ 868              		.loc 1 198 31 view .LVU351
+ 869 0506 3E4D     		ldr	r5, .L18+24
+ 870 0508 2A80     		strh	r2, [r5]	@ movhi
+ 199:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 871              		.loc 1 199 17 is_stmt 1 view .LVU352
+ 872              		.loc 1 199 68 is_stmt 0 view .LVU353
+ 873 050a C3F34002 		ubfx	r2, r3, #1, #1
+ 874              		.loc 1 199 31 view .LVU354
+ 875 050e 3D4E     		ldr	r6, .L18+28
+ 876 0510 3280     		strh	r2, [r6]	@ movhi
+ 200:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 877              		.loc 1 200 17 is_stmt 1 view .LVU355
+ 878              		.loc 1 200 68 is_stmt 0 view .LVU356
+ 879 0512 C3F30012 		ubfx	r2, r3, #4, #1
+ 880              		.loc 1 200 31 view .LVU357
+ 881 0516 3C4F     		ldr	r7, .L18+32
+ 882 0518 3A80     		strh	r2, [r7]	@ movhi
+ 201:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 883              		.loc 1 201 17 is_stmt 1 view .LVU358
+ 884              		.loc 1 201 68 is_stmt 0 view .LVU359
+ 885 051a C3F34012 		ubfx	r2, r3, #5, #1
+ 886              		.loc 1 201 31 view .LVU360
+ 887 051e DFF8CC80 		ldr	r8, .L18+4
+ 888 0522 A8F80020 		strh	r2, [r8]	@ movhi
+ 202:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 889              		.loc 1 202 17 is_stmt 1 view .LVU361
+ 890              		.loc 1 202 68 is_stmt 0 view .LVU362
+ 891 0526 C3F38012 		ubfx	r2, r3, #6, #1
+ 892              		.loc 1 202 31 view .LVU363
+ 893 052a DFF8C490 		ldr	r9, .L18+8
+ 894 052e A9F80020 		strh	r2, [r9]	@ movhi
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 24
+
+
+ 203:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 895              		.loc 1 203 17 is_stmt 1 view .LVU364
+ 896              		.loc 1 203 68 is_stmt 0 view .LVU365
+ 897 0532 C3F3C013 		ubfx	r3, r3, #7, #1
+ 898              		.loc 1 203 31 view .LVU366
+ 899 0536 DFF8BCA0 		ldr	r10, .L18+12
+ 900 053a AAF80030 		strh	r3, [r10]	@ movhi
+ 204:Core/Src/main.c **** 
+ 205:Core/Src/main.c ****                 delay(delay_time);
+ 901              		.loc 1 205 17 is_stmt 1 view .LVU367
+ 902 053e 41F28830 		movw	r0, #5000
+ 903 0542 FFF7FEFF 		bl	delay
+ 904              	.LVL29:
+ 206:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_6_MASK << 16;
+ 905              		.loc 1 206 17 view .LVU368
+ 906 0546 A369     		ldr	r3, [r4, #24]
+ 907              		.loc 1 206 38 is_stmt 0 view .LVU369
+ 908 0548 43F40003 		orr	r3, r3, #8388608
+ 909 054c A361     		str	r3, [r4, #24]
+ 207:Core/Src/main.c ****                 led_pin_6_val = (GPIOA_REG(GPIO_ODR) & LED_6_MASK) != 0;
+ 910              		.loc 1 207 17 is_stmt 1 view .LVU370
+ 911              		.loc 1 207 34 is_stmt 0 view .LVU371
+ 912 054e 6369     		ldr	r3, [r4, #20]
+ 913              		.loc 1 207 68 view .LVU372
+ 914 0550 C3F3C013 		ubfx	r3, r3, #7, #1
+ 915              		.loc 1 207 31 view .LVU373
+ 916 0554 AAF80030 		strh	r3, [r10]	@ movhi
+ 208:Core/Src/main.c ****                 delay(delay_time);
+ 917              		.loc 1 208 17 is_stmt 1 view .LVU374
+ 918 0558 41F28830 		movw	r0, #5000
+ 919 055c FFF7FEFF 		bl	delay
+ 920              	.LVL30:
+ 209:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_5_MASK << 16;
+ 921              		.loc 1 209 17 view .LVU375
+ 922 0560 A369     		ldr	r3, [r4, #24]
+ 923              		.loc 1 209 38 is_stmt 0 view .LVU376
+ 924 0562 43F48003 		orr	r3, r3, #4194304
+ 925 0566 A361     		str	r3, [r4, #24]
+ 210:Core/Src/main.c ****                 led_pin_5_val = (GPIOA_REG(GPIO_ODR) & LED_5_MASK) != 0;
+ 926              		.loc 1 210 17 is_stmt 1 view .LVU377
+ 927              		.loc 1 210 34 is_stmt 0 view .LVU378
+ 928 0568 6369     		ldr	r3, [r4, #20]
+ 929              		.loc 1 210 68 view .LVU379
+ 930 056a C3F38013 		ubfx	r3, r3, #6, #1
+ 931              		.loc 1 210 31 view .LVU380
+ 932 056e A9F80030 		strh	r3, [r9]	@ movhi
+ 211:Core/Src/main.c ****                 delay(delay_time);
+ 933              		.loc 1 211 17 is_stmt 1 view .LVU381
+ 934 0572 41F28830 		movw	r0, #5000
+ 935 0576 FFF7FEFF 		bl	delay
+ 936              	.LVL31:
+ 212:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+ 937              		.loc 1 212 17 view .LVU382
+ 938 057a A369     		ldr	r3, [r4, #24]
+ 939              		.loc 1 212 38 is_stmt 0 view .LVU383
+ 940 057c 43F40013 		orr	r3, r3, #2097152
+ 941 0580 A361     		str	r3, [r4, #24]
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 25
+
+
+ 213:Core/Src/main.c ****                 led_pin_4_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+ 942              		.loc 1 213 17 is_stmt 1 view .LVU384
+ 943              		.loc 1 213 34 is_stmt 0 view .LVU385
+ 944 0582 6369     		ldr	r3, [r4, #20]
+ 945              		.loc 1 213 68 view .LVU386
+ 946 0584 C3F34013 		ubfx	r3, r3, #5, #1
+ 947              		.loc 1 213 31 view .LVU387
+ 948 0588 A8F80030 		strh	r3, [r8]	@ movhi
+ 214:Core/Src/main.c ****                 delay(delay_time);
+ 949              		.loc 1 214 17 is_stmt 1 view .LVU388
+ 950 058c 41F28830 		movw	r0, #5000
+ 951 0590 FFF7FEFF 		bl	delay
+ 952              	.LVL32:
+ 215:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_3_MASK << 16;
+ 953              		.loc 1 215 17 view .LVU389
+ 954 0594 A369     		ldr	r3, [r4, #24]
+ 955              		.loc 1 215 38 is_stmt 0 view .LVU390
+ 956 0596 43F48013 		orr	r3, r3, #1048576
+ 957 059a A361     		str	r3, [r4, #24]
+ 216:Core/Src/main.c ****                 led_pin_3_val = (GPIOA_REG(GPIO_ODR) & LED_3_MASK) != 0;
+ 958              		.loc 1 216 17 is_stmt 1 view .LVU391
+ 959              		.loc 1 216 34 is_stmt 0 view .LVU392
+ 960 059c 6369     		ldr	r3, [r4, #20]
+ 961              		.loc 1 216 68 view .LVU393
+ 962 059e C3F30013 		ubfx	r3, r3, #4, #1
+ 963              		.loc 1 216 31 view .LVU394
+ 964 05a2 3B80     		strh	r3, [r7]	@ movhi
+ 217:Core/Src/main.c ****                 delay(delay_time);
+ 965              		.loc 1 217 17 is_stmt 1 view .LVU395
+ 966 05a4 41F28830 		movw	r0, #5000
+ 967 05a8 FFF7FEFF 		bl	delay
+ 968              	.LVL33:
+ 218:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_2_MASK << 16;
+ 969              		.loc 1 218 17 view .LVU396
+ 970 05ac A369     		ldr	r3, [r4, #24]
+ 971              		.loc 1 218 38 is_stmt 0 view .LVU397
+ 972 05ae 43F40033 		orr	r3, r3, #131072
+ 973 05b2 A361     		str	r3, [r4, #24]
+ 219:Core/Src/main.c ****                 led_pin_2_val = (GPIOA_REG(GPIO_ODR) & LED_2_MASK) != 0;
+ 974              		.loc 1 219 17 is_stmt 1 view .LVU398
+ 975              		.loc 1 219 34 is_stmt 0 view .LVU399
+ 976 05b4 6369     		ldr	r3, [r4, #20]
+ 977              		.loc 1 219 68 view .LVU400
+ 978 05b6 C3F34003 		ubfx	r3, r3, #1, #1
+ 979              		.loc 1 219 31 view .LVU401
+ 980 05ba 3380     		strh	r3, [r6]	@ movhi
+ 220:Core/Src/main.c ****                 delay(delay_time);
+ 981              		.loc 1 220 17 is_stmt 1 view .LVU402
+ 982 05bc 41F28830 		movw	r0, #5000
+ 983 05c0 FFF7FEFF 		bl	delay
+ 984              	.LVL34:
+ 221:Core/Src/main.c ****                 GPIOA_REG(GPIO_BSRR) |= LED_1_MASK << 16;
+ 985              		.loc 1 221 17 view .LVU403
+ 986 05c4 A369     		ldr	r3, [r4, #24]
+ 987              		.loc 1 221 38 is_stmt 0 view .LVU404
+ 988 05c6 43F48033 		orr	r3, r3, #65536
+ 989 05ca A361     		str	r3, [r4, #24]
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 26
+
+
+ 222:Core/Src/main.c ****                 led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_1_MASK) != 0;
+ 990              		.loc 1 222 17 is_stmt 1 view .LVU405
+ 991              		.loc 1 222 34 is_stmt 0 view .LVU406
+ 992 05cc 6369     		ldr	r3, [r4, #20]
+ 993              		.loc 1 222 54 view .LVU407
+ 994 05ce 03F00103 		and	r3, r3, #1
+ 995              		.loc 1 222 31 view .LVU408
+ 996 05d2 2B80     		strh	r3, [r5]	@ movhi
+ 223:Core/Src/main.c ****                 delay(delay_time);
+ 997              		.loc 1 223 17 is_stmt 1 view .LVU409
+ 998 05d4 41F28830 		movw	r0, #5000
+ 999 05d8 FFF7FEFF 		bl	delay
+ 1000              	.LVL35:
+ 224:Core/Src/main.c ****                 but_1_val = 0;
+ 1001              		.loc 1 224 17 view .LVU410
+ 1002              		.loc 1 224 27 is_stmt 0 view .LVU411
+ 1003 05dc 0023     		movs	r3, #0
+ 1004 05de 064A     		ldr	r2, .L18+16
+ 1005 05e0 1380     		strh	r3, [r2]	@ movhi
+ 225:Core/Src/main.c ****                 but_2_val = 0;
+ 1006              		.loc 1 225 17 is_stmt 1 view .LVU412
+ 1007              		.loc 1 225 27 is_stmt 0 view .LVU413
+ 1008 05e2 064A     		ldr	r2, .L18+20
+ 1009 05e4 1380     		strh	r3, [r2]	@ movhi
+ 1010 05e6 EFE5     		b	.L2
+ 1011              	.L19:
+ 1012              		.align	2
+ 1013              	.L18:
+ 1014 05e8 00000240 		.word	1073872896
+ 1015 05ec 00000000 		.word	led_pin_4_val
+ 1016 05f0 00000000 		.word	led_pin_5_val
+ 1017 05f4 00000000 		.word	led_pin_6_val
+ 1018 05f8 00000000 		.word	but_1_val
+ 1019 05fc 00000000 		.word	but_2_val
+ 1020 0600 00000000 		.word	led_pin_1_val
+ 1021 0604 00000000 		.word	led_pin_2_val
+ 1022 0608 00000000 		.word	led_pin_3_val
+ 1023              		.cfi_endproc
+ 1024              	.LFE0:
+ 1026              		.global	but_3_prev
+ 1027              		.section	.bss.but_3_prev,"aw",%nobits
+ 1028              		.align	1
+ 1031              	but_3_prev:
+ 1032 0000 0000     		.space	2
+ 1033              		.global	but_3_state
+ 1034              		.section	.bss.but_3_state,"aw",%nobits
+ 1035              		.align	1
+ 1038              	but_3_state:
+ 1039 0000 0000     		.space	2
+ 1040              		.global	but_3_val
+ 1041              		.section	.bss.but_3_val,"aw",%nobits
+ 1042              		.align	1
+ 1045              	but_3_val:
+ 1046 0000 0000     		.space	2
+ 1047              		.global	but_2_state
+ 1048              		.section	.bss.but_2_state,"aw",%nobits
+ 1049              		.align	1
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 27
+
+
+ 1052              	but_2_state:
+ 1053 0000 0000     		.space	2
+ 1054              		.global	but_2_val
+ 1055              		.section	.bss.but_2_val,"aw",%nobits
+ 1056              		.align	1
+ 1059              	but_2_val:
+ 1060 0000 0000     		.space	2
+ 1061              		.global	but_1_state
+ 1062              		.section	.bss.but_1_state,"aw",%nobits
+ 1063              		.align	1
+ 1066              	but_1_state:
+ 1067 0000 0000     		.space	2
+ 1068              		.global	but_1_val
+ 1069              		.section	.bss.but_1_val,"aw",%nobits
+ 1070              		.align	1
+ 1073              	but_1_val:
+ 1074 0000 0000     		.space	2
+ 1075              		.global	led_pin_6_val
+ 1076              		.section	.bss.led_pin_6_val,"aw",%nobits
+ 1077              		.align	1
+ 1080              	led_pin_6_val:
+ 1081 0000 0000     		.space	2
+ 1082              		.global	led_pin_5_val
+ 1083              		.section	.bss.led_pin_5_val,"aw",%nobits
+ 1084              		.align	1
+ 1087              	led_pin_5_val:
+ 1088 0000 0000     		.space	2
+ 1089              		.global	led_pin_4_val
+ 1090              		.section	.bss.led_pin_4_val,"aw",%nobits
+ 1091              		.align	1
+ 1094              	led_pin_4_val:
+ 1095 0000 0000     		.space	2
+ 1096              		.global	led_pin_3_val
+ 1097              		.section	.bss.led_pin_3_val,"aw",%nobits
+ 1098              		.align	1
+ 1101              	led_pin_3_val:
+ 1102 0000 0000     		.space	2
+ 1103              		.global	led_pin_2_val
+ 1104              		.section	.bss.led_pin_2_val,"aw",%nobits
+ 1105              		.align	1
+ 1108              	led_pin_2_val:
+ 1109 0000 0000     		.space	2
+ 1110              		.global	led_pin_1_val
+ 1111              		.section	.bss.led_pin_1_val,"aw",%nobits
+ 1112              		.align	1
+ 1115              	led_pin_1_val:
+ 1116 0000 0000     		.space	2
+ 1117              		.global	var
+ 1118              		.section	.bss.var,"aw",%nobits
+ 1119              		.align	1
+ 1122              	var:
+ 1123 0000 0000     		.space	2
+ 1124              		.text
+ 1125              	.Letext0:
+ 1126              		.file 2 "Core/Inc/stdtypes.h"
+ 1127              		.file 3 "Core/Inc/init.h"
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s 			page 28
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:21     .text.main:00000000 $t
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:27     .text.main:00000000 main
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:85     .text.main:0000003c $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:179    .bss.led_pin_1_val:00000000 led_pin_1_val
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:95     .bss.but_3_prev:00000000 but_3_prev
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:92     .bss.but_3_prev:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:102    .bss.but_3_state:00000000 but_3_state
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:99     .bss.but_3_state:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:109    .bss.but_3_val:00000000 but_3_val
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:106    .bss.but_3_val:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:116    .bss.but_2_state:00000000 but_2_state
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:113    .bss.but_2_state:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:123    .bss.but_2_val:00000000 but_2_val
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:120    .bss.but_2_val:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:130    .bss.but_1_state:00000000 but_1_state
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:127    .bss.but_1_state:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:137    .bss.but_1_val:00000000 but_1_val
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:134    .bss.but_1_val:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:144    .bss.led_pin_6_val:00000000 led_pin_6_val
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:141    .bss.led_pin_6_val:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:151    .bss.led_pin_5_val:00000000 led_pin_5_val
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:148    .bss.led_pin_5_val:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:158    .bss.led_pin_4_val:00000000 led_pin_4_val
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:155    .bss.led_pin_4_val:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:165    .bss.led_pin_3_val:00000000 led_pin_3_val
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:162    .bss.led_pin_3_val:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:172    .bss.led_pin_2_val:00000000 led_pin_2_val
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:169    .bss.led_pin_2_val:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:176    .bss.led_pin_1_val:00000000 $d
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:186    .bss.var:00000000 var
-C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:183    .bss.var:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:21     .text.main:00000000 $t
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:27     .text.main:00000000 main
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:304    .text.main:00000190 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1115   .bss.led_pin_1_val:00000000 led_pin_1_val
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1108   .bss.led_pin_2_val:00000000 led_pin_2_val
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1101   .bss.led_pin_3_val:00000000 led_pin_3_val
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1094   .bss.led_pin_4_val:00000000 led_pin_4_val
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1087   .bss.led_pin_5_val:00000000 led_pin_5_val
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1080   .bss.led_pin_6_val:00000000 led_pin_6_val
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1073   .bss.but_1_val:00000000 but_1_val
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1059   .bss.but_2_val:00000000 but_2_val
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:316    .text.main:000001b4 $t
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:642    .text.main:00000384 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1122   .bss.var:00000000 var
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1066   .bss.but_1_state:00000000 but_1_state
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1052   .bss.but_2_state:00000000 but_2_state
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1038   .bss.but_3_state:00000000 but_3_state
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1031   .bss.but_3_prev:00000000 but_3_prev
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1045   .bss.but_3_val:00000000 but_3_val
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:659    .text.main:000003c0 $t
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1014   .text.main:000005e8 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1028   .bss.but_3_prev:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1035   .bss.but_3_state:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1042   .bss.but_3_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1049   .bss.but_2_state:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1056   .bss.but_2_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1063   .bss.but_1_state:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1070   .bss.but_1_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1077   .bss.led_pin_6_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1084   .bss.led_pin_5_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1091   .bss.led_pin_4_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1098   .bss.led_pin_3_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1105   .bss.led_pin_2_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1112   .bss.led_pin_1_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\cc3m23JA.s:1119   .bss.var:00000000 $d
 
 UNDEFINED SYMBOLS
-register_init
+lab_1_init
 delay
