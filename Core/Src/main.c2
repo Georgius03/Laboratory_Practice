@@ -1,0 +1,43 @@
+#include "init.h"
+
+uint16_t var = 0;
+
+/* LEDs */
+uint16_t led_pin_1_val = 0;
+uint16_t led_pin_2_val = 0;
+uint16_t led_pin_3_val = 0;
+uint16_t led_pin_4_val = 0;
+uint16_t led_pin_5_val = 0;
+uint16_t led_pin_6_val = 0;
+
+/* BUTTONS */
+uint16_t but_1_val = 0;
+uint16_t but_1_state = 0;
+
+uint16_t but_2_val = 0;
+uint16_t but_2_state = 0;
+
+uint16_t but_3_val = 0;
+uint16_t but_3_state = 0;
+uint16_t but_3_prev = 0;
+
+#define BUT_13_MASK (1 << 13)
+
+int main(void) {
+    // normal_man_init();
+    register_init();
+
+    uint16_t delay_time = 5000;
+
+    while(1) {
+        /* main loop */
+        delay(delay_time);
+        GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+        led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+        delay(delay_time);
+        GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+        led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+    }
+
+    return 0;
+}

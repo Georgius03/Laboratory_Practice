@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccsqn9fl.s 			page 1
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -28,42 +28,226 @@ ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccsqn9fl.s 			page 1
   25              		.thumb_func
   27              	main:
   28              	.LFB0:
-   1:Core/Src/main.c **** 
-   2:Core/Src/main.c **** int main(void) {
-  29              		.loc 1 2 16 view -0
+   1:Core/Src/main.c **** #include "init.h"
+   2:Core/Src/main.c **** 
+   3:Core/Src/main.c **** uint16_t var = 0;
+   4:Core/Src/main.c **** 
+   5:Core/Src/main.c **** /* LEDs */
+   6:Core/Src/main.c **** uint16_t led_pin_1_val = 0;
+   7:Core/Src/main.c **** uint16_t led_pin_2_val = 0;
+   8:Core/Src/main.c **** uint16_t led_pin_3_val = 0;
+   9:Core/Src/main.c **** uint16_t led_pin_4_val = 0;
+  10:Core/Src/main.c **** uint16_t led_pin_5_val = 0;
+  11:Core/Src/main.c **** uint16_t led_pin_6_val = 0;
+  12:Core/Src/main.c **** 
+  13:Core/Src/main.c **** /* BUTTONS */
+  14:Core/Src/main.c **** uint16_t but_1_val = 0;
+  15:Core/Src/main.c **** uint16_t but_1_state = 0;
+  16:Core/Src/main.c **** 
+  17:Core/Src/main.c **** uint16_t but_2_val = 0;
+  18:Core/Src/main.c **** uint16_t but_2_state = 0;
+  19:Core/Src/main.c **** 
+  20:Core/Src/main.c **** uint16_t but_3_val = 0;
+  21:Core/Src/main.c **** uint16_t but_3_state = 0;
+  22:Core/Src/main.c **** uint16_t but_3_prev = 0;
+  23:Core/Src/main.c **** 
+  24:Core/Src/main.c **** #define BUT_13_MASK (1 << 13)
+  25:Core/Src/main.c **** 
+  26:Core/Src/main.c **** int main(void) {
+  29              		.loc 1 26 16 view -0
   30              		.cfi_startproc
-  31              		@ Volatile: function does not return.
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		@ link register save eliminated.
-  35              	.L2:
-   3:Core/Src/main.c ****     
-   4:Core/Src/main.c ****     while(1) {
-  36              		.loc 1 4 5 view .LVU1
-   5:Core/Src/main.c ****         // Main loop
-   6:Core/Src/main.c ****     }
-  37              		.loc 1 6 5 view .LVU2
-   4:Core/Src/main.c **** 
-int main(void) {
-    
-    while(1) {
-        // Main loop
-    }
-
-    return 0;
-}
-  38              		.loc 1 4 10 view .LVU3
-  39 0000 FEE7     		b	.L2
-  40              		.cfi_endproc
-  41              	.LFE0:
-  43              		.text
-  44              	.Letext0:
-ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccsqn9fl.s 			page 2
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 2
+
+
+  33 0000 38B5     		push	{r3, r4, r5, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 3, -16
+  37              		.cfi_offset 4, -12
+  38              		.cfi_offset 5, -8
+  39              		.cfi_offset 14, -4
+  27:Core/Src/main.c ****     // normal_man_init();
+  28:Core/Src/main.c ****     register_init();
+  40              		.loc 1 28 5 view .LVU1
+  41 0002 FFF7FEFF 		bl	register_init
+  42              	.LVL0:
+  29:Core/Src/main.c **** 
+  30:Core/Src/main.c ****     uint16_t delay_time = 5000;
+  43              		.loc 1 30 5 view .LVU2
+  44              	.L2:
+  31:Core/Src/main.c **** 
+  32:Core/Src/main.c ****     while(1) {
+  45              		.loc 1 32 5 view .LVU3
+  33:Core/Src/main.c ****         /* main loop */
+  34:Core/Src/main.c ****         delay(delay_time);
+  46              		.loc 1 34 9 view .LVU4
+  47 0006 41F28830 		movw	r0, #5000
+  48 000a FFF7FEFF 		bl	delay
+  49              	.LVL1:
+  35:Core/Src/main.c ****         GPIOA_REG(GPIO_BSRR) |= LED_4_MASK;
+  50              		.loc 1 35 9 view .LVU5
+  51 000e 0B4C     		ldr	r4, .L4
+  52 0010 A369     		ldr	r3, [r4, #24]
+  53              		.loc 1 35 30 is_stmt 0 view .LVU6
+  54 0012 43F02003 		orr	r3, r3, #32
+  55 0016 A361     		str	r3, [r4, #24]
+  36:Core/Src/main.c ****         led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+  56              		.loc 1 36 9 is_stmt 1 view .LVU7
+  57              		.loc 1 36 26 is_stmt 0 view .LVU8
+  58 0018 6369     		ldr	r3, [r4, #20]
+  59              		.loc 1 36 60 view .LVU9
+  60 001a C3F34013 		ubfx	r3, r3, #5, #1
+  61              		.loc 1 36 23 view .LVU10
+  62 001e 084D     		ldr	r5, .L4+4
+  63 0020 2B80     		strh	r3, [r5]	@ movhi
+  37:Core/Src/main.c ****         delay(delay_time);
+  64              		.loc 1 37 9 is_stmt 1 view .LVU11
+  65 0022 41F28830 		movw	r0, #5000
+  66 0026 FFF7FEFF 		bl	delay
+  67              	.LVL2:
+  38:Core/Src/main.c ****         GPIOA_REG(GPIO_BSRR) |= LED_4_MASK << 16;
+  68              		.loc 1 38 9 view .LVU12
+  69 002a A369     		ldr	r3, [r4, #24]
+  70              		.loc 1 38 30 is_stmt 0 view .LVU13
+  71 002c 43F40013 		orr	r3, r3, #2097152
+  72 0030 A361     		str	r3, [r4, #24]
+  39:Core/Src/main.c ****         led_pin_1_val = (GPIOA_REG(GPIO_ODR) & LED_4_MASK) != 0;
+  73              		.loc 1 39 9 is_stmt 1 discriminator 1 view .LVU14
+  74              		.loc 1 39 26 is_stmt 0 discriminator 1 view .LVU15
+  75 0032 6369     		ldr	r3, [r4, #20]
+  76              		.loc 1 39 60 discriminator 1 view .LVU16
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 3
+
+
+  77 0034 C3F34013 		ubfx	r3, r3, #5, #1
+  78              		.loc 1 39 23 discriminator 1 view .LVU17
+  79 0038 2B80     		strh	r3, [r5]	@ movhi
+  32:Core/Src/main.c ****         /* main loop */
+  80              		.loc 1 32 10 is_stmt 1 view .LVU18
+  81 003a E4E7     		b	.L2
+  82              	.L5:
+  83              		.align	2
+  84              	.L4:
+  85 003c 00000240 		.word	1073872896
+  86 0040 00000000 		.word	led_pin_1_val
+  87              		.cfi_endproc
+  88              	.LFE0:
+  90              		.global	but_3_prev
+  91              		.section	.bss.but_3_prev,"aw",%nobits
+  92              		.align	1
+  95              	but_3_prev:
+  96 0000 0000     		.space	2
+  97              		.global	but_3_state
+  98              		.section	.bss.but_3_state,"aw",%nobits
+  99              		.align	1
+ 102              	but_3_state:
+ 103 0000 0000     		.space	2
+ 104              		.global	but_3_val
+ 105              		.section	.bss.but_3_val,"aw",%nobits
+ 106              		.align	1
+ 109              	but_3_val:
+ 110 0000 0000     		.space	2
+ 111              		.global	but_2_state
+ 112              		.section	.bss.but_2_state,"aw",%nobits
+ 113              		.align	1
+ 116              	but_2_state:
+ 117 0000 0000     		.space	2
+ 118              		.global	but_2_val
+ 119              		.section	.bss.but_2_val,"aw",%nobits
+ 120              		.align	1
+ 123              	but_2_val:
+ 124 0000 0000     		.space	2
+ 125              		.global	but_1_state
+ 126              		.section	.bss.but_1_state,"aw",%nobits
+ 127              		.align	1
+ 130              	but_1_state:
+ 131 0000 0000     		.space	2
+ 132              		.global	but_1_val
+ 133              		.section	.bss.but_1_val,"aw",%nobits
+ 134              		.align	1
+ 137              	but_1_val:
+ 138 0000 0000     		.space	2
+ 139              		.global	led_pin_6_val
+ 140              		.section	.bss.led_pin_6_val,"aw",%nobits
+ 141              		.align	1
+ 144              	led_pin_6_val:
+ 145 0000 0000     		.space	2
+ 146              		.global	led_pin_5_val
+ 147              		.section	.bss.led_pin_5_val,"aw",%nobits
+ 148              		.align	1
+ 151              	led_pin_5_val:
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 4
+
+
+ 152 0000 0000     		.space	2
+ 153              		.global	led_pin_4_val
+ 154              		.section	.bss.led_pin_4_val,"aw",%nobits
+ 155              		.align	1
+ 158              	led_pin_4_val:
+ 159 0000 0000     		.space	2
+ 160              		.global	led_pin_3_val
+ 161              		.section	.bss.led_pin_3_val,"aw",%nobits
+ 162              		.align	1
+ 165              	led_pin_3_val:
+ 166 0000 0000     		.space	2
+ 167              		.global	led_pin_2_val
+ 168              		.section	.bss.led_pin_2_val,"aw",%nobits
+ 169              		.align	1
+ 172              	led_pin_2_val:
+ 173 0000 0000     		.space	2
+ 174              		.global	led_pin_1_val
+ 175              		.section	.bss.led_pin_1_val,"aw",%nobits
+ 176              		.align	1
+ 179              	led_pin_1_val:
+ 180 0000 0000     		.space	2
+ 181              		.global	var
+ 182              		.section	.bss.var,"aw",%nobits
+ 183              		.align	1
+ 186              	var:
+ 187 0000 0000     		.space	2
+ 188              		.text
+ 189              	.Letext0:
+ 190              		.file 2 "Core/Inc/stdtypes.h"
+ 191              		.file 3 "Core/Inc/init.h"
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccdesbms.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Georg\AppData\Local\Temp\ccsqn9fl.s:21     .text.main:00000000 $t
-C:\Users\Georg\AppData\Local\Temp\ccsqn9fl.s:27     .text.main:00000000 main
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:21     .text.main:00000000 $t
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:27     .text.main:00000000 main
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:85     .text.main:0000003c $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:179    .bss.led_pin_1_val:00000000 led_pin_1_val
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:95     .bss.but_3_prev:00000000 but_3_prev
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:92     .bss.but_3_prev:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:102    .bss.but_3_state:00000000 but_3_state
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:99     .bss.but_3_state:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:109    .bss.but_3_val:00000000 but_3_val
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:106    .bss.but_3_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:116    .bss.but_2_state:00000000 but_2_state
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:113    .bss.but_2_state:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:123    .bss.but_2_val:00000000 but_2_val
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:120    .bss.but_2_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:130    .bss.but_1_state:00000000 but_1_state
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:127    .bss.but_1_state:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:137    .bss.but_1_val:00000000 but_1_val
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:134    .bss.but_1_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:144    .bss.led_pin_6_val:00000000 led_pin_6_val
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:141    .bss.led_pin_6_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:151    .bss.led_pin_5_val:00000000 led_pin_5_val
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:148    .bss.led_pin_5_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:158    .bss.led_pin_4_val:00000000 led_pin_4_val
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:155    .bss.led_pin_4_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:165    .bss.led_pin_3_val:00000000 led_pin_3_val
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:162    .bss.led_pin_3_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:172    .bss.led_pin_2_val:00000000 led_pin_2_val
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:169    .bss.led_pin_2_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:176    .bss.led_pin_1_val:00000000 $d
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:186    .bss.var:00000000 var
+C:\Users\Georg\AppData\Local\Temp\ccdesbms.s:183    .bss.var:00000000 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+register_init
+delay

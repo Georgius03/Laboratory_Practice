@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "stdint.h": "c",
+        "cstdint": "c",
+        "main.h": "c",
+        "init.h": "c",
+        "vcruntime.h": "c",
+        "type_traits": "c",
+        "xutility": "c"
+    }
+}

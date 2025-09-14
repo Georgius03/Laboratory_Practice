@@ -1,0 +1,337 @@
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"init.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/init.c"
+  20              		.section	.text.lab_1_init,"ax",%progbits
+  21              		.align	1
+  22              		.global	lab_1_init
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	lab_1_init:
+  28              	.LFB0:
+   1:Core/Src/init.c **** #include "init.h"
+   2:Core/Src/init.c **** 
+   3:Core/Src/init.c **** void lab_1_init(void) {
+  29              		.loc 1 3 23 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+   4:Core/Src/init.c **** 
+   5:Core/Src/init.c ****     /* GPIO RCC configuration */
+   6:Core/Src/init.c ****     RCC_REG(RCC_AHB1ENR) |= GPIOA_EN;                    // Enable clock for GPIOA
+  34              		.loc 1 6 5 view .LVU1
+  35 0000 2449     		ldr	r1, .L2
+  36 0002 D1F83038 		ldr	r3, [r1, #2096]
+  37              		.loc 1 6 26 is_stmt 0 view .LVU2
+  38 0006 43F00203 		orr	r3, r3, #2
+  39 000a C1F83038 		str	r3, [r1, #2096]
+   7:Core/Src/init.c **** 
+   8:Core/Src/init.c ****     /* GPIOA configuration (LEDS) [01 for each is Output] */
+   9:Core/Src/init.c ****     GPIOA_REG(GPIO_MODER) |= LED_1_PIN;              // Set PA0 pin as output
+  40              		.loc 1 9 5 is_stmt 1 view .LVU3
+  41 000e 224B     		ldr	r3, .L2+4
+  42 0010 1A68     		ldr	r2, [r3]
+  43              		.loc 1 9 27 is_stmt 0 view .LVU4
+  44 0012 42F00102 		orr	r2, r2, #1
+  45 0016 1A60     		str	r2, [r3]
+  10:Core/Src/init.c ****     GPIOA_REG(GPIO_MODER) |= LED_2_PIN;              // Set PA1 pin as output
+  46              		.loc 1 10 5 is_stmt 1 view .LVU5
+  47 0018 1A68     		ldr	r2, [r3]
+  48              		.loc 1 10 27 is_stmt 0 view .LVU6
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s 			page 2
+
+
+  49 001a 42F00402 		orr	r2, r2, #4
+  50 001e 1A60     		str	r2, [r3]
+  11:Core/Src/init.c ****     GPIOA_REG(GPIO_MODER) |= LED_3_PIN;              // Set PA4 pin as output
+  51              		.loc 1 11 5 is_stmt 1 view .LVU7
+  52 0020 1A68     		ldr	r2, [r3]
+  53              		.loc 1 11 27 is_stmt 0 view .LVU8
+  54 0022 42F48072 		orr	r2, r2, #256
+  55 0026 1A60     		str	r2, [r3]
+  12:Core/Src/init.c ****     GPIOA_REG(GPIO_MODER) |= LED_4_PIN;              // Set PA5 pin as output
+  56              		.loc 1 12 5 is_stmt 1 view .LVU9
+  57 0028 1A68     		ldr	r2, [r3]
+  58              		.loc 1 12 27 is_stmt 0 view .LVU10
+  59 002a 42F48062 		orr	r2, r2, #1024
+  60 002e 1A60     		str	r2, [r3]
+  13:Core/Src/init.c ****     GPIOA_REG(GPIO_MODER) |= LED_5_PIN;              // Set PA6 pin as output
+  61              		.loc 1 13 5 is_stmt 1 view .LVU11
+  62 0030 1A68     		ldr	r2, [r3]
+  63              		.loc 1 13 27 is_stmt 0 view .LVU12
+  64 0032 42F48052 		orr	r2, r2, #4096
+  65 0036 1A60     		str	r2, [r3]
+  14:Core/Src/init.c ****     GPIOA_REG(GPIO_MODER) |= LED_6_PIN;              // Set PA7 pin as output
+  66              		.loc 1 14 5 is_stmt 1 view .LVU13
+  67 0038 1A68     		ldr	r2, [r3]
+  68              		.loc 1 14 27 is_stmt 0 view .LVU14
+  69 003a 42F48042 		orr	r2, r2, #16384
+  70 003e 1A60     		str	r2, [r3]
+  15:Core/Src/init.c **** 
+  16:Core/Src/init.c ****     /* GPIOA configuration (push-pull (reset state)) */
+  17:Core/Src/init.c ****     GPIOA_REG(GPIO_OTYPER) = 0;                      // Set output type to push-pull
+  71              		.loc 1 17 5 is_stmt 1 view .LVU15
+  72              		.loc 1 17 28 is_stmt 0 view .LVU16
+  73 0040 0020     		movs	r0, #0
+  74 0042 5860     		str	r0, [r3, #4]
+  18:Core/Src/init.c **** 
+  19:Core/Src/init.c ****     /* GPIOA configuration (pin speed) [01 for each is Medium] */
+  20:Core/Src/init.c ****     GPIOA_REG(GPIO_OSPEEDR) |= LED_1_PIN;            // Set medium output speed for PA0
+  75              		.loc 1 20 5 is_stmt 1 view .LVU17
+  76 0044 9A68     		ldr	r2, [r3, #8]
+  77              		.loc 1 20 29 is_stmt 0 view .LVU18
+  78 0046 42F00102 		orr	r2, r2, #1
+  79 004a 9A60     		str	r2, [r3, #8]
+  21:Core/Src/init.c ****     GPIOA_REG(GPIO_OSPEEDR) |= LED_2_PIN;            // Set medium output speed for PA1
+  80              		.loc 1 21 5 is_stmt 1 view .LVU19
+  81 004c 9A68     		ldr	r2, [r3, #8]
+  82              		.loc 1 21 29 is_stmt 0 view .LVU20
+  83 004e 42F00402 		orr	r2, r2, #4
+  84 0052 9A60     		str	r2, [r3, #8]
+  22:Core/Src/init.c ****     GPIOA_REG(GPIO_OSPEEDR) |= LED_3_PIN;            // Set medium output speed for PA4
+  85              		.loc 1 22 5 is_stmt 1 view .LVU21
+  86 0054 9A68     		ldr	r2, [r3, #8]
+  87              		.loc 1 22 29 is_stmt 0 view .LVU22
+  88 0056 42F48072 		orr	r2, r2, #256
+  89 005a 9A60     		str	r2, [r3, #8]
+  23:Core/Src/init.c ****     GPIOA_REG(GPIO_OSPEEDR) |= LED_4_PIN;            // Set medium output speed for PA5
+  90              		.loc 1 23 5 is_stmt 1 view .LVU23
+  91 005c 9A68     		ldr	r2, [r3, #8]
+  92              		.loc 1 23 29 is_stmt 0 view .LVU24
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s 			page 3
+
+
+  93 005e 42F48062 		orr	r2, r2, #1024
+  94 0062 9A60     		str	r2, [r3, #8]
+  24:Core/Src/init.c ****     GPIOA_REG(GPIO_OSPEEDR) |= LED_5_PIN;            // Set medium output speed for PA6
+  95              		.loc 1 24 5 is_stmt 1 view .LVU25
+  96 0064 9A68     		ldr	r2, [r3, #8]
+  97              		.loc 1 24 29 is_stmt 0 view .LVU26
+  98 0066 42F48052 		orr	r2, r2, #4096
+  99 006a 9A60     		str	r2, [r3, #8]
+  25:Core/Src/init.c ****     GPIOA_REG(GPIO_OSPEEDR) |= LED_6_PIN;            // Set medium output speed for PA7
+ 100              		.loc 1 25 5 is_stmt 1 view .LVU27
+ 101 006c 9A68     		ldr	r2, [r3, #8]
+ 102              		.loc 1 25 29 is_stmt 0 view .LVU28
+ 103 006e 42F48042 		orr	r2, r2, #16384
+ 104 0072 9A60     		str	r2, [r3, #8]
+  26:Core/Src/init.c **** 
+  27:Core/Src/init.c ****     /* GPIOA configuration (pin speed) [00 for each is No pull-up, pull-down] */
+  28:Core/Src/init.c ****     GPIOA_REG(GPIO_PUPDR) |= 64000000;               // Set No pull-up, pull-down for GPIOA
+ 105              		.loc 1 28 5 is_stmt 1 view .LVU29
+ 106 0074 DA68     		ldr	r2, [r3, #12]
+ 107              		.loc 1 28 27 is_stmt 0 view .LVU30
+ 108 0076 42F07472 		orr	r2, r2, #63963136
+ 109 007a 42F41042 		orr	r2, r2, #36864
+ 110 007e DA60     		str	r2, [r3, #12]
+  29:Core/Src/init.c **** 
+  30:Core/Src/init.c **** 
+  31:Core/Src/init.c **** 
+  32:Core/Src/init.c ****     /* GPIOC configuration */
+  33:Core/Src/init.c ****     RCC_REG(RCC_AHB1ENR) |= GPIOC_EN;                // Enable clock for GPIOC
+ 111              		.loc 1 33 5 is_stmt 1 view .LVU31
+ 112 0080 D1F83028 		ldr	r2, [r1, #2096]
+ 113              		.loc 1 33 26 is_stmt 0 view .LVU32
+ 114 0084 42F00402 		orr	r2, r2, #4
+ 115 0088 C1F83028 		str	r2, [r1, #2096]
+  34:Core/Src/init.c **** 
+  35:Core/Src/init.c ****     /* GPIOC configuration (push-pull (reset state)) */
+  36:Core/Src/init.c ****     GPIOC_REG(GPIO_PUPDR) = 0;                       // No pull-up/pull-down for GPIOC
+ 116              		.loc 1 36 5 is_stmt 1 view .LVU33
+ 117              		.loc 1 36 27 is_stmt 0 view .LVU34
+ 118 008c C3F80C08 		str	r0, [r3, #2060]
+  37:Core/Src/init.c **** }
+ 119              		.loc 1 37 1 view .LVU35
+ 120 0090 7047     		bx	lr
+ 121              	.L3:
+ 122 0092 00BF     		.align	2
+ 123              	.L2:
+ 124 0094 00300240 		.word	1073885184
+ 125 0098 00000240 		.word	1073872896
+ 126              		.cfi_endproc
+ 127              	.LFE0:
+ 129              		.section	.text.delay,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	delay
+ 132              		.syntax unified
+ 133              		.thumb
+ 134              		.thumb_func
+ 136              	delay:
+ 137              	.LVL0:
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s 			page 4
+
+
+ 138              	.LFB1:
+  38:Core/Src/init.c **** 
+  39:Core/Src/init.c **** void delay(int nTime) {
+ 139              		.loc 1 39 23 is_stmt 1 view -0
+ 140              		.cfi_startproc
+ 141              		@ args = 0, pretend = 0, frame = 0
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143              		@ link register save eliminated.
+  40:Core/Src/init.c **** 
+  41:Core/Src/init.c ****     unsigned int i;
+ 144              		.loc 1 41 5 view .LVU37
+  42:Core/Src/init.c ****     unsigned long j;
+ 145              		.loc 1 42 5 view .LVU38
+  43:Core/Src/init.c **** 
+  44:Core/Src/init.c ****     for(i = nTime; i > 0; i--) {
+ 146              		.loc 1 44 5 view .LVU39
+ 147              		.loc 1 44 5 is_stmt 0 view .LVU40
+ 148 0000 03E0     		b	.L5
+ 149              	.LVL1:
+ 150              	.L6:
+  45:Core/Src/init.c ****         for(j = 1000; j > 0; j--);
+ 151              		.loc 1 45 31 is_stmt 1 discriminator 3 view .LVU41
+ 152 0002 013B     		subs	r3, r3, #1
+ 153              	.LVL2:
+ 154              	.L7:
+ 155              		.loc 1 45 25 discriminator 1 view .LVU42
+ 156 0004 002B     		cmp	r3, #0
+ 157 0006 FCD1     		bne	.L6
+  44:Core/Src/init.c ****         for(j = 1000; j > 0; j--);
+ 158              		.loc 1 44 28 discriminator 2 view .LVU43
+ 159 0008 0138     		subs	r0, r0, #1
+ 160              	.LVL3:
+ 161              	.L5:
+  44:Core/Src/init.c ****         for(j = 1000; j > 0; j--);
+ 162              		.loc 1 44 22 discriminator 1 view .LVU44
+ 163 000a 10B1     		cbz	r0, .L9
+ 164              		.loc 1 45 15 is_stmt 0 view .LVU45
+ 165 000c 4FF47A73 		mov	r3, #1000
+ 166 0010 F8E7     		b	.L7
+ 167              	.L9:
+  46:Core/Src/init.c ****     }
+  47:Core/Src/init.c **** }
+ 168              		.loc 1 47 1 view .LVU46
+ 169 0012 7047     		bx	lr
+ 170              		.cfi_endproc
+ 171              	.LFE1:
+ 173              		.section	.text.register_init,"ax",%progbits
+ 174              		.align	1
+ 175              		.global	register_init
+ 176              		.syntax unified
+ 177              		.thumb
+ 178              		.thumb_func
+ 180              	register_init:
+ 181              	.LFB2:
+  48:Core/Src/init.c **** 
+  49:Core/Src/init.c **** 
+  50:Core/Src/init.c **** // void normal_man_init(void) {
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s 			page 5
+
+
+  51:Core/Src/init.c **** //     /* GPIOA configuration */
+  52:Core/Src/init.c **** //     RCC_REG(RCC_AHB1ENR) |= GPIOA_EN;                    // Enable clock for GPIOA
+  53:Core/Src/init.c **** //     GPIOA_REG(GPIO_MODER) |= MODER5_OUTPUT;              // Set PA5 pin as output
+  54:Core/Src/init.c **** //     GPIOA_REG(GPIO_OTYPER) = 0;                          // Set output type to push-pull
+  55:Core/Src/init.c **** //     GPIOA_REG(GPIO_OSPEEDR) |= OSPEEDR5_MEDIUM;          // Set medium output speed for PA5
+  56:Core/Src/init.c **** //     GPIOA_REG(GPIO_PUPDR) = 0x64000000;                  // Configure pull-up/pull-down resistor
+  57:Core/Src/init.c **** 
+  58:Core/Src/init.c **** //     /* GPIOC configuration */
+  59:Core/Src/init.c **** //     RCC_REG(RCC_AHB1ENR) |= GPIOC_EN;                    // Enable clock for GPIOC
+  60:Core/Src/init.c **** //     GPIOC_REG(GPIO_PUPDR) = 0x00000000;                  // No pull-up/pull-down for GPIOC
+  61:Core/Src/init.c **** 
+  62:Core/Src/init.c **** //     /* Set initial state */
+  63:Core/Src/init.c **** //     GPIOA_REG(GPIO_BSRR) |= BS5_SET;                     // Set PA5 output high initially
+  64:Core/Src/init.c **** // }
+  65:Core/Src/init.c **** 
+  66:Core/Src/init.c **** void register_init(void) {
+ 182              		.loc 1 66 26 is_stmt 1 view -0
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 0
+ 185              		@ frame_needed = 0, uses_anonymous_args = 0
+ 186              		@ link register save eliminated.
+  67:Core/Src/init.c **** 
+  68:Core/Src/init.c ****     /* GPIOA */
+  69:Core/Src/init.c ****     *(uint32_t *)(0x40023800 + 0x30) |= 0x1; // Enable GPIOA clock (RST_MEMORY + RCC_AHB1ENR |= GPI
+ 187              		.loc 1 69 5 view .LVU48
+ 188 0000 0C4A     		ldr	r2, .L11
+ 189 0002 D2F83038 		ldr	r3, [r2, #2096]
+ 190              		.loc 1 69 38 is_stmt 0 view .LVU49
+ 191 0006 43F00103 		orr	r3, r3, #1
+ 192 000a C2F83038 		str	r3, [r2, #2096]
+  70:Core/Src/init.c **** 
+  71:Core/Src/init.c ****     *(uint32_t *)(0x40020000 + 0x00) |= 0x400; // Set PA5 as output (GPIOA_MEMORY + GPIOA_MODER |= 
+ 193              		.loc 1 71 5 is_stmt 1 view .LVU50
+ 194 000e 0A4B     		ldr	r3, .L11+4
+ 195 0010 1A68     		ldr	r2, [r3]
+ 196              		.loc 1 71 38 is_stmt 0 view .LVU51
+ 197 0012 42F48062 		orr	r2, r2, #1024
+ 198 0016 1A60     		str	r2, [r3]
+  72:Core/Src/init.c ****     *(uint32_t *)(0x40020000 + 0x04) = 0; // Set GPIOA output type to push-pull (GPIOA_MEMORY + GPI
+ 199              		.loc 1 72 5 is_stmt 1 view .LVU52
+ 200              		.loc 1 72 38 is_stmt 0 view .LVU53
+ 201 0018 0022     		movs	r2, #0
+ 202 001a 5A60     		str	r2, [r3, #4]
+  73:Core/Src/init.c ****     *(uint32_t *)(0x40020000 + 0x08) |= 0x400; // Set GPIOA PA5 output speed to medium speed (GPIOA
+ 203              		.loc 1 73 5 is_stmt 1 view .LVU54
+ 204 001c 9A68     		ldr	r2, [r3, #8]
+ 205              		.loc 1 73 38 is_stmt 0 view .LVU55
+ 206 001e 42F48062 		orr	r2, r2, #1024
+ 207 0022 9A60     		str	r2, [r3, #8]
+  74:Core/Src/init.c ****     *(uint32_t *)(0x40020000 + 0x0C) = 0x64000000; // Reset GPIOA to No pull-up, pull-down (GPIOA_M
+ 208              		.loc 1 74 5 is_stmt 1 view .LVU56
+ 209              		.loc 1 74 38 is_stmt 0 view .LVU57
+ 210 0024 4FF0C842 		mov	r2, #1677721600
+ 211 0028 DA60     		str	r2, [r3, #12]
+  75:Core/Src/init.c ****     // *(uint32_t *)(0x40020000 + 0x0C) |= 0x400; // Set GPIOA PA5 pull-up (GPIOA_MEMORY + GPIOA_PU
+  76:Core/Src/init.c **** 
+  77:Core/Src/init.c ****     *(uint32_t *)(0x40020000 + 0x18) |= 0x20; // Set PA5 high (GPIOA_MEMORY + GPIOA_BSRR |= BS5 bit
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s 			page 6
+
+
+ 212              		.loc 1 77 5 is_stmt 1 view .LVU58
+ 213 002a 9A69     		ldr	r2, [r3, #24]
+ 214              		.loc 1 77 38 is_stmt 0 view .LVU59
+ 215 002c 42F02002 		orr	r2, r2, #32
+ 216 0030 9A61     		str	r2, [r3, #24]
+  78:Core/Src/init.c ****     // *(uint32_t *)(0x40020400 + 0x18) |= 0x200000; // Set PA5 high (GPIOA_MEMORY + GPIOA_BSRR |= 
+  79:Core/Src/init.c **** }
+ 217              		.loc 1 79 1 view .LVU60
+ 218 0032 7047     		bx	lr
+ 219              	.L12:
+ 220              		.align	2
+ 221              	.L11:
+ 222 0034 00300240 		.word	1073885184
+ 223 0038 00000240 		.word	1073872896
+ 224              		.cfi_endproc
+ 225              	.LFE2:
+ 227              		.text
+ 228              	.Letext0:
+ 229              		.file 2 "Core/Inc/stdtypes.h"
+ARM GAS  C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 init.c
+C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s:21     .text.lab_1_init:00000000 $t
+C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s:27     .text.lab_1_init:00000000 lab_1_init
+C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s:124    .text.lab_1_init:00000094 $d
+C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s:130    .text.delay:00000000 $t
+C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s:136    .text.delay:00000000 delay
+C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s:174    .text.register_init:00000000 $t
+C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s:180    .text.register_init:00000000 register_init
+C:\Users\Georg\AppData\Local\Temp\ccAfSC4o.s:222    .text.register_init:00000034 $d
+
+NO UNDEFINED SYMBOLS
